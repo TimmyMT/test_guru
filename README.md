@@ -6,6 +6,7 @@ For run the application, you need insert to your console a command "rails s", an
   
   Entities:
 * Users
+* Tests
 * Questions
 * Answers
 * Results
