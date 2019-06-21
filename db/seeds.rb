@@ -11,51 +11,47 @@ Test.destroy_all
 User.destroy_all
 Result.destroy_all
 
-User.create([
+users = User.create!([
     {name: 'timmy'},
     {name: 'mentor'},
     {name: 'nobody'}
-            ]
-)
-
-Category.create([
-    {title: 'backend'},
-    {title: 'frontend'}
-             ]
-)
-
-Test.create([
-    {level: 2, title: 'Ruby', category_id: Category.find(1).id},
-    {level: 3, title: 'Javascript', category_id: Category.find(2)},
-    {level: 1, title: 'HTML', category_id: Category.find(2)}
-        ]
-)
-
-Result.create([
-    {user_id: User.find(1), test_id: Test.find(1)},
-    {user_id: User.find(1), test_id: Test.find(2)},
-    {user_id: User.find(1), test_id: Test.find(3), status: true},
-    {user_id: User.find(2), test_id: Test.find(1), status: true},
-    {user_id: User.find(2), test_id: Test.find(2), status: true},
-    {user_id: User.find(1), test_id: Test.find(3), status: true},
-    {user_id: User.find(3), test_id: Test.find(1)},
-    {user_id: User.find(3), test_id: Test.find(2)},
-    {user_id: User.find(1), test_id: Test.find(2)}
-          ]
-)
-
-Question.create([
-    {body: 'Question 1 for ruby', test_id: Test.find(1)},
-    {body: 'Question 2 for ruby', test_id: Test.find(1)},
-    {body: 'Question 1 for JS', test_id: Test.find(2)},
-    {body: 'Question 2 for JS', test_id: Test.find(2)},
-    {body: 'Question for html', test_id: Test.find(3)}
 ])
 
-Answer.create([
-    {body: 'Answer 1 for ruby', test_id: Question.find(1)},
-    {body: 'Answer 2 for ruby', test_id: Question.find(1)},
-    {body: 'Answer 1 for JS', test_id: Question.find(2)},
-    {body: 'Answer 2 for JS', test_id: Question.find(2)},
-    {body: 'Answer for html', test_id: Question.find(3)}
+categories = Category.create!([
+    {title: 'backend'},
+    {title: 'frontend'}
+])
+
+tests = Test.create!([
+    {level: 2, title: 'Ruby', category_id: categories[0].id},
+    {level: 3, title: 'Javascript', category_id: categories[1].id},
+    {level: 1, title: 'HTML', category_id: categories[1].id}
+])
+
+results = Result.create!([
+    {user_id: users[0].id, test_id: tests[0].id},
+    {user_id: users[0].id, test_id: tests[1].id},
+    {user_id: users[0].id, test_id: tests[2].id, status: true},
+    {user_id: users[1].id, test_id: tests[0].id, status: true},
+    {user_id: users[1].id, test_id: tests[1].id, status: true},
+    {user_id: users[1].id, test_id: tests[2].id, status: true},
+    {user_id: users[2].id, test_id: tests[0].id},
+    {user_id: users[2].id, test_id: tests[1].id},
+    {user_id: users[2].id, test_id: tests[2].id}
+])
+
+questions = Question.create!([
+    {body: 'Question 1 for ruby', test_id: tests[0].id},
+    {body: 'Question 2 for ruby', test_id: tests[0].id},
+    {body: 'Question 1 for JS', test_id: tests[1].id},
+    {body: 'Question 2 for JS', test_id: tests[1].id},
+    {body: 'Question for html', test_id: tests[2].id}
+])
+
+answers = Answer.create!([
+    {body: 'Answer 1 for ruby', question_id: questions[0].id},
+    {body: 'Answer 2 for ruby', question_id: questions[0].id},
+    {body: 'Answer 1 for JS', question_id: questions[1].id},
+    {body: 'Answer 2 for JS', question_id: questions[1].id},
+    {body: 'Answer for html', question_id: questions[2].id}
 ])
