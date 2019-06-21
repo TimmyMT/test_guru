@@ -10,6 +10,8 @@ Category.destroy_all
 Test.destroy_all
 User.destroy_all
 Result.destroy_all
+Question.destroy_all
+Answer.destroy_all
 
 users = User.create!([
     {name: 'timmy'},
