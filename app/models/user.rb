@@ -7,7 +7,6 @@ class User < ApplicationRecord
   def show_tests_with_level(level)
     Test.joins('join tests_users, users on tests.id = tests_users.test_id and users.id = tests_users.user_id')
         .where(users: {id: self.id}, tests: {level: level})
-    # Что то не получается сделать по results.user_id
   end
 
 end
