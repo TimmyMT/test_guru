@@ -24,36 +24,24 @@ categories = Category.create!([
     {title: 'frontend'}
 ])
 
-tests = Test.create!([
-    {level: 2, title: 'Ruby', category_id: categories[0].id},
-    {level: 3, title: 'Javascript', category_id: categories[1].id},
-    {level: 1, title: 'HTML', category_id: categories[1].id}
-])
-
-results = Result.create!([
-    {user_id: users[0].id, test_id: tests[0].id},
-    {user_id: users[0].id, test_id: tests[1].id},
-    {user_id: users[0].id, test_id: tests[2].id, status: true},
-    {user_id: users[1].id, test_id: tests[0].id, status: true},
-    {user_id: users[1].id, test_id: tests[1].id, status: true},
-    {user_id: users[1].id, test_id: tests[2].id, status: true},
-    {user_id: users[2].id, test_id: tests[0].id},
-    {user_id: users[2].id, test_id: tests[1].id},
-    {user_id: users[2].id, test_id: tests[2].id}
-])
-
-questions = Question.create!([
-    {body: 'Question 1 for ruby', test_id: tests[0].id},
-    {body: 'Question 2 for ruby', test_id: tests[0].id},
-    {body: 'Question 1 for JS', test_id: tests[1].id},
-    {body: 'Question 2 for JS', test_id: tests[1].id},
-    {body: 'Question for html', test_id: tests[2].id}
-])
-
-answers = Answer.create!([
-    {body: 'Answer 1 for ruby', question_id: questions[0].id},
-    {body: 'Answer 2 for ruby', question_id: questions[0].id},
-    {body: 'Answer 1 for JS', question_id: questions[1].id},
-    {body: 'Answer 2 for JS', question_id: questions[1].id},
-    {body: 'Answer for html', question_id: questions[2].id}
-])
+# tests = Test.create!([
+#     {level: 2, title: 'Ruby', category_id: categories[0].id},
+#     {level: 3, title: 'Javascript', category_id: categories[1].id},
+#     {level: 1, title: 'HTML', category_id: categories[1].id}
+# ])
+#
+# questions = Question.create!([
+#     {body: 'Question 1 for ruby', test_id: tests[0].id},
+#     {body: 'Question 2 for ruby', test_id: tests[0].id},
+#     {body: 'Question 1 for JS', test_id: tests[1].id},
+#     {body: 'Question 2 for JS', test_id: tests[1].id},
+#     {body: 'Question for html', test_id: tests[2].id}
+# ])
+#
+# answers = Answer.create!([
+#     {body: 'Answer 1 for ruby', question_id: questions[0].id},
+#     {body: 'Answer 2 for ruby', question_id: questions[0].id},
+#     {body: 'Answer 1 for JS', question_id: questions[1].id},
+#     {body: 'Answer 2 for JS', question_id: questions[1].id},
+#     {body: 'Answer for html', question_id: questions[2].id}
+# ])
