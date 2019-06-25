@@ -5,12 +5,14 @@ class Test < ApplicationRecord
   has_many :tests_users
   has_many :users, through: :tests_users
 
-  def self.sort_on_category(name)
-    joins('join categories
-    on tests.category_id = categories.id')
-      .where(categories: { title: name })
-      .order(title: :desc)
-      .pluck(:title)
+  scope :category, lambda { |name|
+    joins('join categories on tests.category_id = categories.id')
+    .where(categories: { title: name })
+    .order(title: :desc)
+  }
+
+  def self.sort_category(name)
+    category(name).pluck(:title)
   end
 
 end
