@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 2019_06_24_121109) do
     t.datetime "updated_at", null: false
     t.integer "category_id", null: false
     t.integer "creator_id"
-    t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["creator_id"], name: "index_tests_on_creator_id"
   end
 
