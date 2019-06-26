@@ -7,7 +7,7 @@ class Test < ApplicationRecord
   has_many :users, through: :tests_users
 
   validates :title, presence: true, uniqueness: { scope: :level }
-  validates :level, numericality: { only_integer: true }, allow_nil: true
+  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
   validate :validate_level, on: :create
 
   scope :level_low, -> { where(level: 0..1) }
@@ -15,7 +15,7 @@ class Test < ApplicationRecord
   scope :level_high, -> { where(level: 5..Float::INFINITY) }
 
   scope :sort_category, lambda { |name|
-      self.joins(:category)
+      joins(:category)
       .where(categories: {title: name})
       .order(title: :desc)
   }
@@ -27,7 +27,7 @@ class Test < ApplicationRecord
   private
 
   def validate_level
-    errors.add(:level) if level.to_i > 10 || level.to_i < 0
+    errors.add(:level) if level.to_i > 10 #|| level.to_i < 0
   end
 
 end
