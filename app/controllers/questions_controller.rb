@@ -1,24 +1,26 @@
 class QuestionsController < ApplicationController
-  before_action :find_question, only: [:show, :destroy]
+  before_action :find_question, only: [:show, :destroy, :create]
 
-  # rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    @questions = Question.all.where(test_id: params[:test_id])
+    @questions = Test.find(params[:test_id]).questions
   end
 
-  def show
-
-  end
+  def show; end
 
   def new
-    @question = Question.new
+    @test = Test.find(params[:test_id])
   end
 
   def create
-    result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
-
-    render plain: result.join("\n")
+    @question = @test.questions.new(params.require(:question).permit(:body))
+    if @question.save
+      render plain: 'Created'
+      redirect_to test_question_path
+    else
+      render plain: 'Aborted'
+    end
   end
 
   def destroy
@@ -29,13 +31,18 @@ class QuestionsController < ApplicationController
 
   def find_question
     @questions = Test.find(params[:test_id]).questions
-    @question = @questions.find_by(id: params[:id])
-    unless @questions.include?(@questions.find_by(id: params[:id]))
-      rescue_with_question_not_found
-    end
+    @question = @questions.find(params[:id])
   end
+
+  # def find_test
+  #   @test = Test.find(params[:test_id])
+  # end
 
   def rescue_with_question_not_found
     render plain: 'Question was not found'
+  end
+
+  def question_params
+    params.require(:question).permit(:body)
   end
 end
