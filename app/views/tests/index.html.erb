@@ -2,5 +2,6 @@
   <h4>
     Test id: <%= t.id %>
     Title: <%= t.title %>
+    <%= link_to 'Show', test_path(t.id) %>
   </h4>
 <% end %>

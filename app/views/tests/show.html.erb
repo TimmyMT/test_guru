@@ -1,4 +1,6 @@
 <h3>
   Test id: <%= @test.id %>
   Title: <%= @test.title %>
+  <br>
+  Questions <%= link_to 'Show', test_questions_path(@test.id) %>
 </h3>
