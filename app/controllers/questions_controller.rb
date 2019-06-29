@@ -1,23 +1,24 @@
 class QuestionsController < ApplicationController
   before_action :find_question, only: [:show, :destroy]
+  before_action :find_test, only: [:new, :create, :index]
   skip_before_action :verify_authenticity_token
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    @questions = Test.find(params[:test_id]).questions
+    @questions = @test.questions
   end
 
   def show; end
 
   def new
-    @test = Test.find(params[:test_id])
+    @test
   end
 
   def create
-    @question = Test.find(params[:test_id]).questions.new(question_params)
+    @question = @test.questions.new(question_params)
     if @question.save
-      redirect_to test_question_path(params[:test_id], id: @question.id)
+      redirect_to test_question_path(@test, @question)
     else
       render plain: 'Aborted'
     end
@@ -25,13 +26,12 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path(params[:test_id])
+    redirect_to test_questions_path(@question.test)
   end
 
   private
 
   def find_question
-    # @questions = Test.find(params[:test_id]).questions
     @question = Question.find(params[:id])
   end
 
@@ -44,6 +44,6 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:body, :test_id)
+    params.require(:question).permit(:body)
   end
 end
