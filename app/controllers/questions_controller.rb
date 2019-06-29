@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Test.find(params[:test_id]).questions.new(question_params)
     if @question.save
-      redirect_to test_questions_path
+      redirect_to test_question_path(params[:test_id], id: @question.id)
     else
       render plain: 'Aborted'
     end
@@ -25,6 +25,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
+    redirect_to test_questions_path(params[:test_id])
   end
 
   private

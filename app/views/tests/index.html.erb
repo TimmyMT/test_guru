@@ -1,7 +1,11 @@
 <% @tests.each do |t| %>
-  <h4>
-    Test id: <%= t.id %>
-    Title: <%= t.title %>
+  <div>
+    <h4>
+      Title: <%= t.title %>
+    </h4>
+    <p>
+      Test id: <%= t.id %>
+    </p>
     <%= link_to 'Show', test_path(t.id) %>
-  </h4>
+  </div>
 <% end %>

@@ -1,3 +1,4 @@
 Question id: <%= @question.id %>
 <br>
 Question body: <%= @question.body %>
+<%= link_to 'Delete', test_question_path(@question.test_id), method: :delete %>
