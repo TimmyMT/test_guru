@@ -1,6 +1,25 @@
 <h3>
-  Test id: <%= @test.id %>
-  Title: <%= @test.title %>
+  Test <%= @test.title %>
   <br>
-  Questions <%= link_to 'Show', test_questions_path(@test.id) %>
 </h3>
+
+<!--  Questions <%#= link_to 'Show', test_questions_path(@test.id) %>-->
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th><h4>Question</h4></th>
+    <th><h4>Action</h4></th>
+  </tr>
+  <% @questions.each do |q| %>
+    <tr>
+      <th><%= q.body %></th>
+      <th>
+        <%= link_to 'Show', test_question_path(q.test_id, q.id) %>
+        |
+        <%= link_to 'Edit', edit_test_question_path(q.test_id, q.id) %>
+      </th>
+    </tr>
+  <% end %>
+</table>
+<h4><%= link_to 'New Question', new_test_question_path(@test) %></h4>
+<h3><%= link_to 'Back', tests_path %></h3>

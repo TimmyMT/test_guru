@@ -1,0 +1,6 @@
+<%= form_with model: [@test, @question], local: true do |form| %>
+  <%= form.label :body %>
+  <%= form.text_field :body %>
+
+  <%= form.submit %>
+<% end %>

@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
-  before_action :find_question, only: [:show, :destroy]
-  before_action :find_test, only: [:new, :create, :index]
+  before_action :find_test, only: [:new, :create, :index, :show, :edit, :update]
+  before_action :find_question, only: [:show, :destroy, :edit, :update]
+
   skip_before_action :verify_authenticity_token
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
@@ -12,8 +13,10 @@ class QuestionsController < ApplicationController
   def show; end
 
   def new
-    @test
+    @question = @test.questions.new
   end
+
+  def edit; end
 
   def create
     @question = @test.questions.new(question_params)
@@ -24,9 +27,17 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def update
+    if @question = @test.questions.update(question_params)
+      redirect_to test_question_path(@test, @question)
+    else
+      render plain: 'Aborted'
+    end
+  end
+
   def destroy
     @question.destroy
-    redirect_to test_questions_path(@question.test)
+    redirect_to test_path(@question.test)
   end
 
   private
