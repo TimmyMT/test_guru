@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     resources :questions, swallow: true
   end
 
-  # resources :questions
+  root 'tests#index'
 end

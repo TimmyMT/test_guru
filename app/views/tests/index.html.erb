@@ -9,16 +9,8 @@
         <th>Action</th>
       </h4>
     </tr>
-    <% @tests.each do |t| %>
-    <tr>
-      <p>
-        <th><%= t.id %></th>
-        <th><%= t.title %></th>
-        <th><%= t.questions.count %></th>
-        <th><%= link_to 'Show', test_path(t.id) %></th>
-      </p>
-    </tr>
-    <% end %>
+    <%= render @tests %>
   </table>
+  <h4><%= link_to 'Create a new Test', new_test_path %></h4>
 </div>
 

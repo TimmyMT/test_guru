@@ -1,9 +1,9 @@
 module ApplicationHelper
   def year_now
-    "Current year: #{Date.today.year}"
+    "Current year: #{Date.current.year}"
   end
 
-  def author_repo
-    link_to 'TimmyMT', 'https://github.com/TimmyMT/test_guru'
+  def author_repo(author, repo)
+    link_to "#{author}", "#{repo}"
   end
 end

@@ -3,23 +3,23 @@
   <br>
 </h3>
 
-<!--  Questions <%#= link_to 'Show', test_questions_path(@test.id) %>-->
-
 <table border="1" cellpadding="5">
   <tr>
     <th><h4>Question</h4></th>
     <th><h4>Action</h4></th>
   </tr>
-  <% @questions.each do |q| %>
-    <tr>
-      <th><%= q.body %></th>
-      <th>
-        <%= link_to 'Show', test_question_path(q.test_id, q.id) %>
-        |
-        <%= link_to 'Edit', edit_test_question_path(q.test_id, q.id) %>
-      </th>
-    </tr>
-  <% end %>
+  <%= render @questions %>
 </table>
+
 <h4><%= link_to 'New Question', new_test_question_path(@test) %></h4>
-<h3><%= link_to 'Back', tests_path %></h3>
+<br>
+<h3>
+  <%= link_to 'Back', tests_path %>
+   |
+  <%= link_to 'Edit', edit_test_path %>
+   |
+  <%= link_to 'Delete',
+                test_path(@test),
+                method: :delete,
+                data: {confirm: 'Are you sure?'}%>
+</h3>

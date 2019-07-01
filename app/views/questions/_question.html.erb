@@ -1,0 +1,8 @@
+<tr>
+  <th><%= question.body %></th>
+  <th>
+    <%= link_to 'Show', test_question_path(question.test_id, question.id) %>
+    |
+    <%= link_to 'Edit', edit_test_question_path(question.test_id, question.id) %>
+  </th>
+</tr>
