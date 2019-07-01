@@ -12,12 +12,9 @@ class QuestionsController < ApplicationController
 
   def new
     @question = @test.questions.new
-    @action_name = 'New'
   end
 
-  def edit
-    @action_name = 'Edit'
-  end
+  def edit; end
 
   def create
     @question = @test.questions.new(question_params)

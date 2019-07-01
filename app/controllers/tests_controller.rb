@@ -11,7 +11,6 @@ class TestsController < ApplicationController
 
   def new
     @test = Test.new
-    @name_action = 'Create new'
   end
 
   def create
@@ -23,9 +22,7 @@ class TestsController < ApplicationController
     end
   end
 
-  def edit
-    @name_action = 'Edit'
-  end
+  def edit; end
 
   def update
     if @test.update(test_params)

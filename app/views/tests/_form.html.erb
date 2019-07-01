@@ -1,5 +1,4 @@
-<h3><%= render 'action_header' %></h3>
-
+<h2><%= render 'layouts/action_header' %> test <%= @test.title if action_name == "edit" %></h2>
 <%= form_with model: @test, local: true do |form| %>
   <%= render 'shared/errors', resource: @test %>
 
