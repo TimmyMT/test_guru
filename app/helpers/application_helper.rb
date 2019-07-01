@@ -4,6 +4,6 @@ module ApplicationHelper
   end
 
   def author_repo(author, repo)
-    link_to "#{author}", "#{repo}"
+    link_to "#{author}", "#{repo}", target: :_blank
   end
 end
