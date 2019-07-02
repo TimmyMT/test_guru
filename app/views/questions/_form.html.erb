@@ -1,6 +1,6 @@
 | <%= link_to 'Question test', test_path(@test) %>
 
-<h2><%= render 'layouts/action_header' %> question <%= question_header(@question) if action_name == "edit" %></h2>
+<h2><%= question_header(@question) %></h2>
 <%= form_with model: [@test, @question], local: true do |form| %>
   <%= render 'shared/errors', resource: @question %>
   <br>
