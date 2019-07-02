@@ -13,13 +13,4 @@
 
 <h4><%= link_to 'New Question', new_test_question_path(@test) %></h4>
 <br>
-<h3>
-  <%= link_to 'Back', tests_path %>
-   |
-  <%= link_to 'Edit', edit_test_path %>
-   |
-  <%= link_to 'Delete',
-                test_path(@test),
-                method: :delete,
-                data: {confirm: 'Are you sure?'}%>
-</h3>
+<h3><%= link_to 'Back', tests_path %></h3>

@@ -3,9 +3,9 @@
 <h2><%= question_header(@question) %></h2>
 <%= form_with model: [@test, @question], local: true do |form| %>
   <%= render 'shared/errors', resource: @question %>
-  <br>
-  <%= form.label :body %>
-  <%= form.text_field :body %>
-
+  <h3>
+    <%= form.label :body %>
+    <%= form.text_field :body %>
+  </h3>
   <%= form.submit %>
 <% end %>

@@ -4,5 +4,9 @@
     <%= link_to 'Show', test_question_path(question.test_id, question.id) %>
     |
     <%= link_to 'Edit', edit_test_question_path(question.test_id, question.id) %>
+    |
+    <%= link_to 'Delete',
+                test_question_path(question.test_id, question.id),
+                method: :delete, data: { confirm: 'Are you sure?' } %>
   </th>
 </tr>
