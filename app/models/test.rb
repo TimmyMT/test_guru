@@ -3,8 +3,8 @@ class Test < ApplicationRecord
   belongs_to :category
 
   has_many :questions, dependent: :nullify
-  has_many :tests_users
-  has_many :users, through: :tests_users
+  has_many :test_passages
+  has_many :users, through: :test_passages
 
   validates :title, presence: true, uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
