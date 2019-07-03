@@ -39,7 +39,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_path(@question.test_id)
+    redirect_to @question.test
   end
 
   private
@@ -52,9 +52,10 @@ class QuestionsController < ApplicationController
     @test = Test.find(params[:test_id])
   end
 
-  def rescue_with_question_not_found
-    render plain: 'Question was not found'
-  end
+  # Убрал чтобы видеть ошибки
+  # def rescue_with_question_not_found
+  #   render plain: 'Question was not found'
+  # end
 
   def question_params
     params.require(:question).permit(:body)
