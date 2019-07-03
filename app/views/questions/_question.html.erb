@@ -1,12 +1,12 @@
 <tr>
   <th><%= question.body %></th>
   <th>
-    <%= link_to 'Show', test_question_path(question.test_id, question.id) %>
+    <%= link_to 'Show', question_path(question) %>
     |
-    <%= link_to 'Edit', edit_test_question_path(question.test_id, question.id) %>
+    <%= link_to 'Edit', edit_question_path(question) %>
     |
     <%= link_to 'Delete',
-                test_question_path(question.test_id, question.id),
+                question_path(question),
                 method: :delete, data: { confirm: 'Are you sure?' } %>
   </th>
 </tr>

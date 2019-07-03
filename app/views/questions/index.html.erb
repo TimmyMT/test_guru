@@ -1,13 +1,1 @@
-<%= link_to 'New Question', new_test_question_path %>
-
-<% @questions.each do |q| %>
-  <h4>
-    Qustion for test a <%= q.test.title %>
-    <br>
-    Question id: <%= q.id %>
-    <br>
-    Question body: <%= q.body %>
-    <br>
-    <%= link_to 'Show', test_question_path(q.test_id,q.id) %>
-  </h4>
-<% end %>
+<%= render @questions %>
