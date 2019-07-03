@@ -1,4 +1,4 @@
-| <%= link_to 'Question test', test_path(@question.test_id) %>
+<br><br><%= link_to 'Question test', test_path(@question.test_id) %>
 
 <h2><%= question_header(@question) %></h2>
 <%= form_with model: [@test, @question], local: true do |form| %>

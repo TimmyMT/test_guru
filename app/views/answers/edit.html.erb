@@ -1,0 +1,7 @@
+<%= render 'form' %>
+
+<p>
+  <%= @answer.question.body %>
+</p>
+
+<%= link_to 'Back', question_path(@answer.question) %>
