@@ -11,5 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :test_passages, only: [:show, :update]
+  resources :test_passages do #, only: [:show, :update]
+    match 'result', to: 'test_passages#result', via: :get
+  end
+
 end

@@ -4,6 +4,7 @@ class TestsController < ApplicationController
 
   def start
     @user.tests.push(@test)
+    @user.test_passages.last.update(current_question_id: @user.tests.last.questions.first.id)
     redirect_to @user.test_passage(@test)
   end
 
