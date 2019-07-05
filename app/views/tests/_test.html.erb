@@ -3,7 +3,9 @@
     <th><%= test.id %></th>
     <th><%= test.title %></th>
     <th><%= test.questions.count %></th>
-    <th><%= link_to 'Show', test_path(test) %>
+    <th>
+        <%= button_to 'Start', start_test_path(test) %>
+        <%= link_to 'Show', test_path(test) %>
         |
         <%= link_to 'Edit', edit_test_path(test) %>
         |
