@@ -1,0 +1,16 @@
+<tr>
+  <th><%= answer.id %></th> |
+  <th><%= answer.body %></th> |
+  <th><%= answer.correct %></th>
+  <br>
+  <th>
+    <%= link_to 'Show', answer_path(answer) %>
+    |
+    <%= link_to 'Edit', edit_answer_path(answer) %>
+    |
+    <%= link_to 'Delete',
+                answer_path(answer),
+                method: :delete, data: { confirm: 'Are you sure?' } %>
+  </th>
+</tr>
+<br><br>

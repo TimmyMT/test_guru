@@ -1,3 +1,14 @@
-<h3>Question id: <%= @question.id %></h3>
+<h1>Question of <%= @question.test.title %> test</h1>
+<!--<h3>Question id: <%#= @question.id %></h3>-->
 <h3>Question body: <%= @question.body %></h3>
+
+<p>
+  <%= link_to 'Create a new answer', new_question_answer_path(@question) %>
+</p>
+
+<b>
+  <p>Answers:</p>
+  <%= render @answers %>
+</b>
+
 <h4><%= link_to 'Back', test_path(@question.test) %></h4>
