@@ -1,1 +1,16 @@
 <h1>The <%= @test_passage.test.title %> Test was completed!</h1>
+
+<h4>
+  You given a
+  <%= raw color_percent(@test_passage) %>
+<!--  <span style="-->
+  <%# if @test_passage.result_percent >= 85 %>
+<!--    color: green;-->
+  <%# elsif @test_passage.result_percent < 85 %>
+<!--    color: red;-->
+  <%# end %>
+<!--  ">-->
+    <%#= @test_passage.result_percent %>
+<!--  </span>-->
+   right answers
+</h4>

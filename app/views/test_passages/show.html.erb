@@ -1,6 +1,12 @@
 <h1>Passing the <%= @test_passage.test.title %> test</h1>
 
+<%#= @test_passage.current_question.id %>
+<!--<br>-->
+<%#= @test_passage.test.questions.pluck(:id) %>
+<!--<br>-->
+
 <b>
+  Question <%= @test_passage.current_number %> of a <%= @test_passage.test.questions.count %><br>
   <%= @test_passage.current_question.body %>
 </b>
 
