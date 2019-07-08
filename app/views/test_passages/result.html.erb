@@ -2,15 +2,8 @@
 
 <h4>
   You given a
-  <%= raw color_percent(@test_passage) %>
-<!--  <span style="-->
-  <%# if @test_passage.result_percent >= 85 %>
-<!--    color: green;-->
-  <%# elsif @test_passage.result_percent < 85 %>
-<!--    color: red;-->
-  <%# end %>
-<!--  ">-->
-    <%#= @test_passage.result_percent %>
-<!--  </span>-->
+  <div class="test_passage_<%= @test_passage.color_percent %>">
+    <%= @test_passage.result_percent %> %
+  </div>
    right answers
 </h4>
