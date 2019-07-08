@@ -11,8 +11,8 @@ class TestPassage < ApplicationRecord
   end
 
   def current_number
-    test.questions.pluck(:id).find_index(current_question.id) + 1
-    # test.questions.order(:id).index(where('id = ?', current_question.id)) + 1
+    # test.questions.pluck(:id).find_index(current_question.id) + 1
+    test.questions.count - questions_collection.count
   end
 
   def result_percent
