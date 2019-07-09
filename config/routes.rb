@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+
+
+  get 'users/new'
+  get :signup, to: 'users#new'
+
+  resources :users, only: :create
+
   resources :test_passages, only: %i[show update] do
     member do
       get :result
