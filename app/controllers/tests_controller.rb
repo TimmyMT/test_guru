@@ -4,7 +4,6 @@ class TestsController < ApplicationController
   before_action :set_user, only: :start
 
   def start
-    # @user = User.first
     @user.tests.push(@test)
     redirect_to @user.test_passage(@test)
   end
@@ -48,7 +47,7 @@ class TestsController < ApplicationController
   private
 
   def set_user
-    @user = User.first
+    @user = current_user
   end
 
   def find_test
