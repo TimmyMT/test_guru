@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    cookies[:email] = nil
+    # cookies[:email] = nil
     redirect_to login_path
   end
 
