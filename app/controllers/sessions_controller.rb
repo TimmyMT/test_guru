@@ -1,4 +1,9 @@
 class SessionsController < ApplicationController
+  before_action :save_back_url, only: :new
+
+  def save_back_url
+    cookies[:prev_url] = request.headers["HTTP_REFERER"]
+  end
 
   def new
 
@@ -9,7 +14,11 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to tests_path
+      if cookies[:prev_url].present?
+        redirect_to cookies[:prev_url]
+      else
+        redirect_to tests_path
+      end
     else
       render :new
     end
