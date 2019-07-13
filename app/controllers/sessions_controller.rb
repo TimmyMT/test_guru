@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
 
   def new
-    if logged_in?
-      redirect_to root_path
-    end
+    # if logged_in?
+    #   redirect_to root_path
+    # end
   end
 
   def create
@@ -12,9 +12,9 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
 
-      redirect_to cookies.delete(:prev_url) || tests_path if cookies[:prev_url].present?
+      redirect_to cookies.delete(:prev_url) || tests_path #if cookies[:prev_url].present?
     else
-      flash[:alert] = 'Something wrong, please try again'
+      flash[:fail] = 'Something wrong, please try again'
       render :new
     end
   end

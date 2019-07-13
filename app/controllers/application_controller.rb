@@ -8,7 +8,8 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     cookies[:prev_url] = request.original_url
     unless current_user
-      return redirect_to login_path, alert: 'Are you a Guru? Verify your Email and password please'
+      flash[:fail] = 'Sign in, please'
+      return redirect_to login_path
     end
   end
 

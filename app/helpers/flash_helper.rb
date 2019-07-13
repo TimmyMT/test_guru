@@ -1,7 +1,5 @@
 module FlashHelper
-  def flash_messages
-    flash.each do |value|
-      content_tag :p, value, class: 'flash_fail'
-    end
+  def flash_message(type)
+    content_tag(:div, flash[:"#{type}"], class: "flash_#{type}")
   end
 end
