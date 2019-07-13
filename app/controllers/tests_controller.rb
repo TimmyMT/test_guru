@@ -1,11 +1,10 @@
 class TestsController < ApplicationController
-  before_action :authenticate_user!, only: [:start, :index, :show, :create, :edit, :update, :new, :destroy]
+  before_action :authenticate_user!
   before_action :find_test, only: [:show, :edit, :update, :destroy, :start]
-  before_action :set_user, only: :start
 
   def start
-    @user.tests.push(@test)
-    redirect_to @user.test_passage(@test)
+    current_user.tests.push(@test)
+    redirect_to current_user.test_passage(@test)
   end
 
   def index
@@ -45,10 +44,6 @@ class TestsController < ApplicationController
   end
 
   private
-
-  def set_user
-    @user = current_user
-  end
 
   def find_test
     @test = Test.find(params[:id])
