@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
 
       redirect_to cookies.delete(:prev_url) || tests_path #if cookies[:prev_url].present?
     else
-      flash[:fail] = 'Something wrong, please try again'
+      flash.now[:fail] = 'Something wrong, please try again'
       render :new
     end
   end
