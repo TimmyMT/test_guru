@@ -12,16 +12,22 @@
   <body>
     <%= render 'layouts/navigate' %>
 
-    <% if logged_in? %>
+    <%= render 'shared/flash' %>
+
+    <% if user_signed_in? %>
       <p class="nav_user">
-        Welcome <b><%= current_user.email %></b>
-        <%= link_to 'Guru', root_path %>
+        Welcome, <b><%= current_user.email %></b> Guru |
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
       </p>
     <% end %>
 
     <div class="content">
       <%= yield %>
     </div>
-    <%= render 'layouts/footer' %>
+
+    <div class="footer">
+      <%= render 'layouts/footer' %>
+    </div>
+
   </body>
 </html>

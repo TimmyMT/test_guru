@@ -1,6 +1,14 @@
-.flash_fail {
-  border: 2px solid #ef2727;
+.flash {
+  border: 2px solid;
   padding: 10px;
   border-radius: 5px;
   width: 45%;
+}
+
+.flash.notice {
+  border-color: #3c85e0;
+}
+
+.flash.danger {
+  border-color: #ef2727;
 }
