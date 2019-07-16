@@ -14,9 +14,7 @@ class Users::SessionsController < Devise::SessionsController
   private
 
   def redirect_admin
-    if admin?
-      redirect_to admin_tests_path
-    end
+    redirect_to admin_tests_path if admin?
   end
 
 end
