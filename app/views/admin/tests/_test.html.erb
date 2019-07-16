@@ -1,0 +1,17 @@
+<tr>
+  <p>
+    <th><%= test.id %></th>
+    <th><%= test.title %></th>
+    <th><%= test.questions.count %></th>
+    <th>
+      <%= link_to 'Show', admin_test_path(test) %>
+      |
+      <%= link_to 'Edit', edit_admin_test_path(test) %>
+      |
+      <%= link_to 'Delete',
+                admin_test_path(test),
+                method: :delete,
+                data: {confirm: 'Are you sure?'}%>
+    </th>
+  </p>
+</tr>

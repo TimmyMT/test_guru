@@ -10,8 +10,9 @@
     <th><h4>Action</h4></th>
   </tr>
   <%= render @questions %>
+  <%#= render partial: 'questions/question', collection: @test.questions %>
 </table>
 
-<h4><%= link_to 'New Question', new_test_question_path(@test) %></h4>
+<h4><%= link_to 'New Question', new_admin_test_question_path(@test) %></h4>
 <br>
-<h3><%= link_to 'Back', tests_path %></h3>
+<h3><%= link_to 'Back', admin_tests_path %></h3>

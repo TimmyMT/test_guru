@@ -1,7 +1,7 @@
-| <%= link_to 'Question test', test_path(@question.test_id) %>
+| <%= link_to 'Question test', admin_test_path(@question.test_id) %>
 
 <h2><%= question_header(@question) %></h2>
-<%= form_with model: [@test, @question], local: true do |form| %>
+<%= form_with model: [:admin, @test, @question], local: true do |form| %>
   <%= render 'shared/errors', resource: @question %>
   <h3>
     <%= form.label :body %>

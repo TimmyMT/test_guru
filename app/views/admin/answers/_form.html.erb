@@ -1,8 +1,8 @@
-<h2><%= link_to 'Question', question_path(@answer.question) %></h2>
+<h2><%= link_to 'Question', admin_question_path(@answer.question) %></h2>
 
 <h2><%= answer_header(@answer) %></h2>
 <h3><%= @answer.question.body %></h3>
-<%= form_with model: [@question, @answer], local: true do |form| %>
+<%= form_with model: [:admin, @question, @answer], local: true do |form| %>
   <%= render 'shared/errors', resource: @answer %>
   <h3>
     <%= form.label :body %>
