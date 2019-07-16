@@ -1,7 +1,5 @@
 class Admin::TestsController < Admin::BaseController
 
-  # before_action :authenticate_user!
-
   before_action :find_test, only: [:show, :edit, :update, :destroy, :start]
 
   def start
@@ -23,6 +21,7 @@ class Admin::TestsController < Admin::BaseController
 
   def create
     @test = Test.new(test_params)
+    @test.creator_id = current_user.id
     if @test.save
       redirect_to [:admin, @test]
     else
@@ -52,7 +51,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :creator_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 
 end
