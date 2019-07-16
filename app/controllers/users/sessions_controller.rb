@@ -1,8 +1,22 @@
 class Users::SessionsController < Devise::SessionsController
 
+  before_action :redirect_admin, only: :create
+  after_action :hello_user, only: :create
+
+  def hello_user
+    flash[:notice] = "Hello #{current_user.first_name}!"
+  end
+
   def create
     super
-    flash[:notice] = "Hello #{current_user.first_name}!"
+  end
+
+  private
+
+  def redirect_admin
+    if admin?
+      redirect_to admin_tests_path
+    end
   end
 
 end
