@@ -1,7 +1,5 @@
 class Users::SessionsController < Devise::SessionsController
 
-  before_action :after_sign_in_path, only: :create
-
   def create
     super
     flash[:notice] = "Hello #{current_user.first_name}!"
@@ -9,8 +7,8 @@ class Users::SessionsController < Devise::SessionsController
 
   private
 
-  def after_sign_in_path
-    redirect_to admin_root_path if current_user.admin?
+  def after_sign_in_path_for(resource)
+    resource.admin? ? admin_root_path : super
   end
 
 end
