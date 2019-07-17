@@ -1,5 +1,9 @@
 class User < ApplicationRecord
 
+  has_many :created_tests, class_name: :Test, foreign_key: :creator_id
+  has_many :test_passages
+  has_many :tests, through: :test_passages
+
   devise :database_authenticatable,
          :registerable,
          :recoverable,
@@ -7,10 +11,6 @@ class User < ApplicationRecord
          :trackable,
          :validatable,
          :confirmable
-
-  has_many :created_tests, class_name: :Test, foreign_key: :creator_id
-  has_many :test_passages
-  has_many :tests, through: :test_passages
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -21,6 +21,10 @@ class User < ApplicationRecord
 
   def show_tests_level(level)
     tests.where(level: level)
+  end
+
+  def admin?
+    is_a?(Admin)
   end
 
 end
