@@ -1,0 +1,16 @@
+en:
+  activerecord:
+    models:
+      test: "Test"
+
+    attributes:
+      test:
+        title: "Title"
+        category: "Category"
+        creator: "Creator"
+
+    errors:
+      messages:
+        blank: "Can't be blank"
+        required: "Must be exist"
+        taken: "already taken"

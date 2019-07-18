@@ -1,0 +1,16 @@
+ru:
+  activerecord:
+    models:
+      test: "Тест"
+
+    attributes:
+      test:
+        title: "Название"
+        category: "Категория"
+        creator: "Создатель"
+
+    errors:
+      messages:
+        blank: "не может быть пустым"
+        required: "не указан(а)"
+        taken: "уже занято"
