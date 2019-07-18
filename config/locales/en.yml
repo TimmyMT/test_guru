@@ -47,6 +47,10 @@ en:
     index:
       header: "Tricky tests"
 
+  test_passages:
+    result:
+      header: "The %{title} Test was successfuly completed!"
+
   admin:
     tests:
       create:
