@@ -7,7 +7,13 @@ en:
       test:
         title: "Title"
         category: "Category"
+        level: "Level"
         creator: "Creator"
+      question:
+        body: "Вопрос"
+      answer:
+        body: "Ответ"
+        correct: "Корректный?"
 
     errors:
       messages:

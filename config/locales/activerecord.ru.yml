@@ -7,7 +7,13 @@ ru:
       test:
         title: "Название"
         category: "Категория"
+        level: "Уровень"
         creator: "Создатель"
+      question:
+        body: "Вопрос"
+      answer:
+        body: "Ответ"
+        correct: "Корректный?"
 
     errors:
       messages:

@@ -1,7 +1,7 @@
 <%= form_with model: [:admin, @test, @question], local: true do |form| %>
   <%= render 'shared/errors', resource: @question %>
   <h3>
-    <%= form.label t('admin.questions._form.text') %>
+    <%= form.label :body %>
     <%= form.text_field :body %>
   </h3>
   <%= form.submit %>

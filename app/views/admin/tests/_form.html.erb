@@ -2,17 +2,17 @@
   <%= render 'shared/errors', resource: @test %>
 
   <h5>
-    <%= form.label t('admin.tests._form.test_title') %>
+    <%= form.label :title %>
     <%= form.text_field :title %>
   </h5>
 
   <h5>
-    <%= form.label t('admin.tests._form.test_level') %>
+    <%= form.label :level %>
     <%= form.number_field :level %>
   </h5>
 
   <h5>
-    <%= form.label t('admin.tests._form.test_category') %>
+    <%= form.label :category_id %>
     <%= form.collection_select :category_id, Category.all, :id, :title, promt: true %>
   </h5>
 
