@@ -10,16 +10,23 @@
   </head>
 
   <body>
-    <%= render 'layouts/navigate' %>
+    <% if user_signed_in? %>
+      <div class="nav nav-user">
+        <span class="nav-admin title"><%= t('devise.header.user') %></span>
+
+        <div class="nav-admin user">
+          <%= render 'layouts/navigate' %>
+          <b class="nav-admin user-email">
+            <%= current_user.first_name %>
+            <%= current_user.last_name %>
+          </b> |
+          <%= link_to t('devise.logout'), destroy_user_session_path, method: :delete %>
+          <br><br>
+        </div>
+      </div>
+    <% end %>
 
     <%= render 'shared/flash' %>
-
-    <% if user_signed_in? %>
-      <p class="nav_user">
-        Welcome, <b><%= current_user.email %></b> Guru |
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-      </p>
-    <% end %>
 
     <div class="content">
       <%= yield %>

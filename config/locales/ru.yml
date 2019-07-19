@@ -24,6 +24,11 @@ ru:
         other: "Обнаружено ошибок %{count}"
 
   devise:
+    header:
+      admin: "ТестГуру - Администратор"
+      user: "ТестГуру"
+    welcome_user: "Здравствуйте %{user}!"
+    logout: "Выйти"
     sessions:
       new:
         header: "Авторизация"

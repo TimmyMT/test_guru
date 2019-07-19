@@ -1,15 +1,4 @@
-<h3 class="navigate">
-  <% if user_signed_in? %>
-    <%= link_to 'Tests', tests_path %>
-  <% end %>
-
-  <%# if logged_in? %>
-    <%#= link_to 'Sign out', signout_path, method: :delete %>
-  <%# else %>
-<!--    <%#= link_to 'Sign in', login_path %> |-->
-    <%#= link_to 'Sign up', signup_path %>
-  <%# end %>
-</h3>
-
-
+<% if user_signed_in? %>
+  <%= link_to 'Tests', tests_path %>
+<% end %>
 
