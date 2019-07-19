@@ -24,6 +24,9 @@ ru:
         other: "Обнаружено ошибок %{count}"
 
   devise:
+    hello_user: "Здравствуйте %{name}!"
+    failure:
+      unauthenticated: "Что продолжить выполните вход в аккаунт"
     header:
       admin: "ТестГуру - Администратор"
       user: "ТестГуру"
