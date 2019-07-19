@@ -23,6 +23,11 @@ en:
         other: "%{count} errors detected"
 
   devise:
+    header:
+      admin: "TestGuru - Admin"
+      user: "TestGuru"
+    welcome_user: "Good day to you %{user}!"
+    logout: "Sign out"
     sessions:
       new:
         header: "Sign in to Guru"
@@ -37,6 +42,8 @@ en:
         not_receive_confirmation: "Didn't receive confirmation instructions?"
 
   tests:
+    tests_link: "Tests"
+    admin_tests_link: "Tests control"
     index:
       header: "Tricky tests"
       title: "title"

@@ -43,6 +43,8 @@ ru:
         not_receive_confirmation: "Не получили инструкции с подтверждением?"
 
   tests:
+    tests_link: "Тесты"
+    admin_tests_link: "Управление тестами"
     index:
       header: "Доступные тесты"
       title: "Название"

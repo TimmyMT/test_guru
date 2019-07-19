@@ -1,4 +1,5 @@
 <% if user_signed_in? %>
-  <%= link_to 'Tests', tests_path %>
+  <%= link_to t('tests.tests_link'), tests_path %>
+  <%= link_to t('tests.admin_tests_link'), admin_tests_path if current_user.admin? %>
 <% end %>
 
