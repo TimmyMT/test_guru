@@ -1,14 +1,20 @@
-<h1>Question of <%= @question.test.title %> test</h1>
+<h1>
+  <%= t('.header', title: @question.test.title) %>
+<!--  Question of <%#= @question.test.title %> test-->
+</h1>
 <!--<h3>Question id: <%#= @question.id %></h3>-->
-<h3>Question body: <%= @question.body %></h3>
+<h3>
+  <%= t('.question_body', body: @question.body) %>
+<!--  Question body: <%#= @question.body %>-->
+</h3>
 
 <p>
-  <%= link_to 'Create a new answer', new_admin_question_answer_path(@question) %>
+  <%= link_to t('.new_answer'), new_admin_question_answer_path(@question) %>
 </p>
 
 <b>
-  <p>Answers:</p>
+  <p><%= t('.answers') %></p>
   <%= render @question.answers %>
 </b>
 
-<h4><%= link_to 'Back', admin_test_path(@question.test) %></h4>
+<h4><%= link_to t('.back_to_test'), admin_test_path(@question.test) %></h4>

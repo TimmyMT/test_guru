@@ -4,11 +4,11 @@
     <th><%= test.title %></th>
     <th><%= test.questions.count %></th>
     <th>
-      <%= link_to 'Show', admin_test_path(test) %>
+      <%= link_to t('global_words.show_resource'), admin_test_path(test) %>
       |
-      <%= link_to 'Edit', edit_admin_test_path(test) %>
+      <%= link_to t('global_words.edit_resource'), edit_admin_test_path(test) %>
       |
-      <%= link_to 'Delete',
+      <%= link_to t('global_words.delete_resource'),
                 admin_test_path(test),
                 method: :delete,
                 data: {confirm: 'Are you sure?'}%>

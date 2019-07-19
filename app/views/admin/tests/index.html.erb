@@ -1,16 +1,18 @@
-<h1><%= t('.header') %></h1>
+<h1><%= t('tests.index.header') %></h1>
 <div>
   <table border="1" cellpadding="5">
     <tr>
       <h4>
-        <th>Id</th>
-        <th>Title</th>
-        <th>Questions</th>
-        <th>Action</th>
+        <th><%= t('global_words.id_resource') %></th>
+        <th><%= t('tests.index.title') %></th>
+        <th><%= t('tests.index.questions') %></th>
+        <th><%= t('global_words.actions') %></th>
       </h4>
     </tr>
     <%= render @tests %>
   </table>
-  <h4><%= link_to 'Create a new Test', new_admin_test_path %></h4>
+  <h4>
+    <%= link_to t('.new_test'), new_admin_test_path %>
+  </h4>
 </div>
 

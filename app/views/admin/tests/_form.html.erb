@@ -1,19 +1,18 @@
-<h2><%= test_header(@test) %></h2>
 <%= form_with model: [:admin, @test], local: true do |form| %>
   <%= render 'shared/errors', resource: @test %>
 
   <h5>
-    <%= form.label :title %>
+    <%= form.label t('admin.tests._form.test_title') %>
     <%= form.text_field :title %>
   </h5>
 
   <h5>
-    <%= form.label :level %>
+    <%= form.label t('admin.tests._form.test_level') %>
     <%= form.number_field :level %>
   </h5>
 
   <h5>
-    <%= form.label :category_id %>
+    <%= form.label t('admin.tests._form.test_category') %>
     <%= form.collection_select :category_id, Category.all, :id, :title, promt: true %>
   </h5>
 

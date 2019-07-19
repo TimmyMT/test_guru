@@ -1,11 +1,10 @@
-| <%= link_to 'Question test', admin_test_path(@question.test_id) %>
-
-<h2><%= question_header(@question) %></h2>
 <%= form_with model: [:admin, @test, @question], local: true do |form| %>
   <%= render 'shared/errors', resource: @question %>
   <h3>
-    <%= form.label :body %>
+    <%= form.label t('admin.questions._form.text') %>
     <%= form.text_field :body %>
   </h3>
   <%= form.submit %>
 <% end %>
+
+<h3><%= link_to t('admin.questions.show.back_to_test'), admin_test_path(@question.test) %></h3>

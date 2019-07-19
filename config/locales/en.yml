@@ -1,42 +1,15 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
-
   helpers:
     submit:
       test:
         create: "Create test"
         update: "Update test"
+      question:
+        create: "Add question"
+        update: "Update question"
+      answer:
+        create: "Add answer"
+        update: "Update answer"
     label:
       test:
         title: "Title"
@@ -49,20 +22,86 @@ en:
         one: "%{count} error detected"
         other: "%{count} errors detected"
 
+  devise:
+    sessions:
+      new:
+        header: "Sign in to Guru"
+        email: "Email"
+        password: "Password"
+        remember: "Remember me"
+        enter: "Sign in"
+    shared:
+      _links:
+        sign_up: "Create account"
+        forgot_password: "Forgot password?"
+        not_receive_confirmation: "Didn't receive confirmation instructions?"
+
   tests:
     index:
       header: "Tricky tests"
+      title: "title"
+      questions: "questions"
+    _test:
+      button: "Begin test"
 
   test_passages:
     result:
       header: "The %{title} Test was successfuly completed!"
+      text: "You given right answers:"
+    show:
+      header: "Passing the test %{title}"
+      text: "Question %{number} of a %{count}"
+      button: "Next question"
+
+  global_words:
+    show_resource: "Show"
+    edit_resource: "Edit"
+    delete_resource: "Delete"
+    id_resource: "ID"
+    actions: "Actions"
 
   admin:
     tests:
       create:
         success: "Test was succesfully created"
       index:
-        header: "Tricky tests"
+        new_test: "Create a new test"
+      show:
+        header: "Test %{title}"
+        creator: "Created by: %{email}"
+        question: "Question"
+        new_question: "New question"
+        back_to_tests: "Back to tests"
+      _form:
+        test_title: "Test title"
+        test_level: "Level"
+        test_category: "Test category"
+      edit:
+        header: "Change the test %{title}"
+      new:
+        header: "Create a new Test"
+    questions:
+      show:
+        header: "Question of test %{title}"
+        question_body: "Question: %{body}"
+        new_answer: "New answer"
+        answers: "Answers"
+        back_to_test: "Back to test"
+      new:
+        header: "Add question for test %{title}"
+      edit:
+        header: "Change question: %{title}"
+      _form:
+        text: "Question"
+    answers:
+      _form:
+        answer: "Answer"
+        correct: "Correct?"
+      new:
+        header: "New answer for question %{title}"
+      edit:
+        header: "Change answer: %{title}"
+      back_to_question: "Bakc to question"
 
   tests_mailer:
     completed_test:

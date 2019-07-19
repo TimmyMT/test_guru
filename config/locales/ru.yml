@@ -1,16 +1,21 @@
 ru:
-  hello: "Привет мир"
-
   helpers:
     submit:
       test:
         create: "Создать тест"
         update: "Обновить тест"
+      question:
+        create: "Добавить вопрос"
+        update: "Обновить вопрос"
+      answer:
+        create: "Добавить ответ"
+        update: "Обновить ответ"
     label:
       test:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+
 
   shared:
     errors:
@@ -18,20 +23,86 @@ ru:
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено ошибок %{count}"
 
+  devise:
+    sessions:
+      new:
+        header: "Авторизация"
+        email: "Почтовый адрес"
+        password: "Пароль"
+        remember: "Запомнить меня"
+        enter: "Войти"
+    shared:
+      _links:
+        sign_up: "Новый аккаунт"
+        forgot_password: "Забыли пароль?"
+        not_receive_confirmation: "Не получили инструкции с подтверждением?"
+
   tests:
     index:
       header: "Доступные тесты"
+      title: "Название"
+      questions: "Вопросы"
+    _test:
+      button: "Пройти тест"
 
   test_passages:
     result:
       header: "Тест %{title} успешно завершён!"
+      text: "Вы дали верных ответов:"
+    show:
+      header: "Прохождение теста %{title}"
+      text: "Вопрос %{number} из %{count}"
+      button: "Следующий вопрос"
+
+  global_words:
+    show_resource: "Подробнее"
+    edit_resource: "Изменить"
+    delete_resource: "Удалить"
+    id_resource: "Идентификатор"
+    actions: "Действия"
 
   admin:
     tests:
       create:
         success: "Тест успешно создан"
       index:
-        header: "Доступные тесты"
+        new_test: "Создать новый тест"
+      show:
+        header: "Тест %{title}"
+        creator: "Автор теста %{email}"
+        question: "Вопрос"
+        new_question: "Новый вопрос"
+        back_to_tests: "Вернуться к тестам"
+      _form:
+        test_title: "Название теста"
+        test_level: "Уровень теста"
+        test_category: "Категория теста"
+      edit:
+        header: "Изменить тест %{title}"
+      new:
+        header: "Создать новый тест"
+    questions:
+      show:
+        header: "Вопрос теста %{title}"
+        question_body: "Вопрос: %{body}"
+        new_answer: "Новый ответ"
+        answers: "Ответы"
+        back_to_test: "Вернуться к тесту"
+      new:
+        header: "Добавить вопрос к тесту %{title}"
+      edit:
+        header: "Изменить вопрос: %{title}"
+      _form:
+        text: "Вопрос"
+    answers:
+      _form:
+        answer: "Ответ"
+        correct: "Корректный?"
+      new:
+        header: "Новый ответ для вопроса %{title}"
+      edit:
+        header: "Изменить ответ %{title}"
+      back_to_question: "Вернуться к вопросу"
 
   tests_mailer:
     completed_test:

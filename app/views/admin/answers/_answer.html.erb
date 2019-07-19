@@ -4,11 +4,11 @@
   <th><%= answer.correct %></th>
   <br>
   <th>
-    <%= link_to 'Show', admin_answer_path(answer) %>
+    <%= link_to t('global_words.show_resource'), admin_answer_path(answer) %>
     |
-    <%= link_to 'Edit', edit_admin_answer_path(answer) %>
+    <%= link_to t('global_words.edit_resource'), edit_admin_answer_path(answer) %>
     |
-    <%= link_to 'Delete',
+    <%= link_to t('global_words.delete_resource'),
                 admin_answer_path(answer),
                 method: :delete, data: { confirm: 'Are you sure?' } %>
   </th>

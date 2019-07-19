@@ -1,9 +1,8 @@
 <h1><%= t('.header', title: @test_passage.test.title) %></h1>
 
 <h4>
-  You given a
   <div class="test_passage_<%= result_color(@test_passage) %>">
+    <%= t('.text') %>
     <%= @test_passage.result_percent %> %
   </div>
-   right answers
 </h4>

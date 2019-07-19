@@ -1,12 +1,12 @@
-<h1><%= I18n.t('tests.index.header') %></h1>
+<h1><%= t('tests.index.header') %></h1>
 <div>
   <table border="1" cellpadding="5">
     <tr>
       <h4>
-        <th>Id</th>
-        <th>Title</th>
-        <th>Questions</th>
-        <th>Action</th>
+        <th><%= t('global_words.id_resource') %></th>
+        <th><%= t('.title') %></th>
+        <th><%= t('.questions') %></th>
+        <th><%= t('global_words.actions') %></th>
       </h4>
     </tr>
     <%= render @tests %>
