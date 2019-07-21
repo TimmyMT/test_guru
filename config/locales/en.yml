@@ -15,6 +15,8 @@ en:
         title: "Title"
         level: "Level"
         category_id: "Category"
+    select:
+      promt: "Please select"
 
   shared:
     errors:
