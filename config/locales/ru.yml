@@ -85,10 +85,10 @@ ru:
         question: "Вопрос"
         new_question: "Новый вопрос"
         back_to_tests: "Вернуться к тестам"
-      _form:
-        test_title: "Название теста"
-        test_level: "Уровень теста"
-        test_category: "Категория теста"
+#      _form:
+#        test_title: "Название теста"
+#        test_level: "Уровень теста"
+#        test_category: "Категория теста"
       edit:
         header: "Изменить тест %{title}"
       new:

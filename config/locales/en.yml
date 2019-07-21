@@ -82,10 +82,10 @@ en:
         question: "Question"
         new_question: "New question"
         back_to_tests: "Back to tests"
-      _form:
-        test_title: "Test title"
-        test_level: "Level"
-        test_category: "Test category"
+#      _form:
+#        test_title: "Test title"
+#        test_level: "Level"
+#        test_category: "Test category"
       edit:
         header: "Change the test %{title}"
       new:
