@@ -7,6 +7,7 @@
   </div>
   <nav class="my-2 my-md-0 mr-md-3">
     <% if user_signed_in? %>
+      <!-- Управление тестами "Панель управления администратора" -->
       <a class="p-2 text-dark"><%= link_to t('tests.admin_tests_link'), admin_tests_path if current_user.admin? %></a>
       <a class="p-2 text-white">
         <%= current_user.first_name %>

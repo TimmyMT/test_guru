@@ -1,10 +1,5 @@
 
 <% flash.each do |key, message| %>
-  <% if key == 'alert' %>
-    <% change_key = 'danger' %>
-  <% else %>
-    <% change_key = key %>
-  <% end %>
-  <%= content_tag :div, message, class: "alert alert-#{change_key}" %>
+  <%= content_tag :div, message, class: "#{flash_convert(key)}" %>
 <% end %>
 
