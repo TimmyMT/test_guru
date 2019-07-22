@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>TestGuru</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,25 +13,10 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <div class="nav nav-user">
-        <span class="nav-admin title"><%= t('devise.header.user') %></span>
+    <%= render 'shared/nav' %>
 
-        <div class="nav-admin user">
-          <%= render 'layouts/navigate' %>
-          <b class="nav-admin user-email">
-            <%= current_user.first_name %>
-            <%= current_user.last_name %>
-          </b> |
-          <%= link_to t('devise.logout'), destroy_user_session_path, method: :delete %>
-          <br><br>
-        </div>
-      </div>
-    <% end %>
-
-    <%= render 'shared/flash' %>
-
-    <div class="content">
+    <div class="container">
+      <%= render 'shared/flash' %>
       <%= yield %>
     </div>
 
