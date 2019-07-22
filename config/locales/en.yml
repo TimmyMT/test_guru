@@ -27,8 +27,8 @@ en:
   devise:
     hello_user: "Hello %{name}!"
     header:
-      admin: "TestGuru - Admin"
-      user: "TestGuru"
+      admin: "Admin"
+#      user: "User"
     welcome_user: "Good day to you %{user}!"
     logout: "Sign out"
     sessions:

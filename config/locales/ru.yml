@@ -30,8 +30,8 @@ ru:
     failure:
       unauthenticated: "Что продолжить выполните вход в аккаунт"
     header:
-      admin: "ТестГуру - Администратор"
-      user: "ТестГуру"
+      admin: "Администратор"
+#      user: "Поьзователь"
     welcome_user: "Здравствуйте %{user}!"
     logout: "Выйти"
     sessions:

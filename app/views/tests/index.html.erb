@@ -1,15 +1,19 @@
 <h1><%= t('tests.index.header') %></h1>
 <div>
-  <table border="1" cellpadding="5">
-    <tr>
-      <h4>
-        <th><%= t('global_words.id_resource') %></th>
-        <th><%= t('.title') %></th>
-        <th><%= t('.questions') %></th>
-        <th><%= t('global_words.actions') %></th>
-      </h4>
-    </tr>
-    <%= render @tests %>
+  <table border="1" cellpadding="5" class="table">
+    <thead>
+      <tr>
+        <h4>
+          <th scope="col"><%= t('global_words.id_resource') %></th>
+          <th scope="col"><%= t('.title') %></th>
+          <th scope="col"><%= t('.questions') %></th>
+          <th scope="col"><%= t('global_words.actions') %></th>
+        </h4>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @tests %>
+    </tbody>
   </table>
 </div>
 
