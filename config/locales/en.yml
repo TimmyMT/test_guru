@@ -25,13 +25,17 @@ en:
         other: "%{count} errors detected"
 
   devise:
-    hello_user: "Hello %{name}!"
+    failure:
+      user:
+        invalid: "Something was wrong, please try again"
+      unauthenticated: "Before continue, you need sign in"
     header:
       admin: "Admin"
-#      user: "User"
     welcome_user: "Good day to you %{user}!"
     logout: "Sign out"
     sessions:
+      user:
+        signed_in: ""
       new:
         header: "Sign in to Guru"
         email: "Email"

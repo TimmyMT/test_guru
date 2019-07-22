@@ -6,7 +6,7 @@
   <br>
 </h3>
 
-<table border="1" cellpadding="5">
+<table border="1" cellpadding="5" class="table">
   <tr>
     <th><h4><%= t('global_words.id_resource') %></h4></th>
     <th><h4><%= t('.question') %></h4></th>
@@ -16,6 +16,6 @@
   <%#= render partial: 'questions/question', collection: @test.questions %>
 </table>
 
-<h4><%= link_to t('.new_question'), new_admin_test_question_path(@test) %></h4>
+<h4><%= link_to t('.new_question'), new_admin_test_question_path(@test), class: 'btn btn-primary' %></h4>
 <br>
-<h3><%= link_to t('.back_to_tests'), admin_tests_path %></h3>
+<h3><%= link_to t('.back_to_tests'), admin_tests_path, class: 'btn btn-primary' %></h3>

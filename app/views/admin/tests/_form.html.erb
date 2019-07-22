@@ -1,20 +1,26 @@
-<%= form_with model: [:admin, @test], local: true do |form| %>
-  <%= render 'shared/errors', resource: @test %>
+<div class="card border-primary">
+  <div class="card-body">
+    <%= form_with model: [:admin, @test], local: true do |form| %>
+      <%= render 'shared/errors', resource: @test %>
 
-  <h5>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </h5>
+      <h5>
+        <%= form.label :title %>
+        <%= form.text_field :title, class: 'form-control' %>
+      </h5>
 
-  <h5>
-    <%= form.label :level %>
-    <%= form.number_field :level %>
-  </h5>
+      <h5>
+        <%= form.label :level %>
+        <%= form.number_field :level, class: 'form-control' %>
+      </h5>
 
-  <h5>
-    <%= form.label :category_id %>
-    <%= form.collection_select :category_id, Category.all, :id, :title, { promt: true } %>
-  </h5>
+      <h5>
+        <%= form.label :category_id %>
+        <%= form.collection_select :category_id, Category.all, :id, :title, { promt: true } %>
+      </h5>
 
-  <%= form.submit %>
-<% end %>
+      <%= form.submit class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
+<br>
+

@@ -9,7 +9,7 @@
 </h3>
 
 <p>
-  <%= link_to t('.new_answer'), new_admin_question_answer_path(@question) %>
+  <%= link_to t('.new_answer'), new_admin_question_answer_path(@question), class: 'btn btn-primary' %>
 </p>
 
 <b>
@@ -17,4 +17,4 @@
   <%= render @question.answers %>
 </b>
 
-<h4><%= link_to t('.back_to_test'), admin_test_path(@question.test) %></h4>
+<h4><%= link_to t('.back_to_test'), admin_test_path(@question.test), class: 'btn btn-primary' %></h4>
