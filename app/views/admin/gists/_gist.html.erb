@@ -1,0 +1,7 @@
+<p>
+  User: <%= gist.user_email %> <br>
+  <%= link_to 'Gist', gist.gist_url, target: :_blank %> <br>
+  Question: <%= link_to truncate(Question.find(gist.question_id).body, length: 25), admin_question_path(gist.question_id) %> <br>
+  Created: <%= gist.created_at %> <br>
+  <br>
+</p>

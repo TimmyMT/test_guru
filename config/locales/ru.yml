@@ -15,6 +15,8 @@ ru:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+      answer:
+        body: "Ответ"
     select:
       promt: "Выберите"
 
@@ -60,6 +62,7 @@ ru:
       button: "Пройти тест"
 
   test_passages:
+    gist_description: "Вопрос теста %{title} от TestGuru"
     result:
       header: "Тест %{title} успешно завершён!"
       text: "Вы дали верных ответов:"
@@ -67,6 +70,9 @@ ru:
       header: "Прохождение теста %{title}"
       text: "Вопрос %{number} из %{count}"
       button: "Следующий вопрос"
+    gist:
+      success: "Gist успешно сохранён!"
+      failure: "Во время сохранения произошла ошибка"
 
   global_words:
     show_resource: "Подробнее"

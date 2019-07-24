@@ -1,7 +1,21 @@
-<h4><%= year_now %></h4>
-<h3>
-  Student of
-  <%= link_to 'Thinknetica school', 'https://www.thinknetica.com', target: :_blank %>:
-  <br>Karimov Timur [TimmyMT]
-</h3>
-<h4>Project is a Test Guru <%= author_repo('TimmyMT', 'test_guru') %></h4>
+<footer class="page-footer font-small unique-color-dark pt-1 bg-secondary text-light">
+
+  <div class="container">
+
+    <ul class="list-unstyled list-inline text-center py-2">
+      Karimov Timur <br>
+      <li class="list-inline-item">
+        <h5 class="mb-1">Project is a Test Guru</h5>
+      </li>
+      <li class="list-inline-item">
+        [<%= author_repo('TimmyMT', 'test_guru') %>]
+      </li>
+    </ul>
+
+  </div>
+
+  <div class="footer-copyright text-center py-3 bg-dark"><%= year_now %> Student of
+    <%= link_to 'Thinknetica school', 'https://www.thinknetica.com', target: :_blank, class: 'card-link text-warning' %>
+  </div>
+</footer>
+

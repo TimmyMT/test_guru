@@ -2,10 +2,10 @@
   <th><%= question.id %></th>
   <th><%= question.body %></th>
   <th>
-    <%= link_to t('global_words.show_resource'), admin_question_path(question), class: 'btn btn-primary' %>
-    <%= link_to t('global_words.edit_resource'), edit_admin_question_path(question), class: 'btn btn-primary' %>
+    <%= link_to t('global_words.show_resource'), admin_question_path(question), class: 'btn btn-info' %>
+    <%= link_to t('global_words.edit_resource'), edit_admin_question_path(question), class: 'btn btn-warning' %>
     <%= link_to t('global_words.delete_resource'),
                 admin_question_path(question),
-                method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %>
+                method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
   </th>
 </tr>

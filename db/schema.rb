@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_16_131044) do
+ActiveRecord::Schema.define(version: 2019_07_24_190454) do
 
   create_table "answers", force: :cascade do |t|
     t.text "body", null: false
@@ -28,11 +28,21 @@ ActiveRecord::Schema.define(version: 2019_07_16_131044) do
     t.index ["title"], name: "index_categories_on_title", unique: true
   end
 
+  create_table "gists", force: :cascade do |t|
+    t.string "question_id"
+    t.string "gist_url"
+    t.string "user_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "questions", force: :cascade do |t|
     t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "test_id"
+    t.integer "question_id_id"
+    t.index ["question_id_id"], name: "index_questions_on_question_id_id"
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
@@ -78,9 +88,11 @@ ActiveRecord::Schema.define(version: 2019_07_16_131044) do
     t.string "type", default: "User", null: false
     t.string "first_name"
     t.string "last_name"
+    t.integer "user_email_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["type"], name: "index_users_on_type"
+    t.index ["user_email_id"], name: "index_users_on_user_email_id"
   end
 
 end

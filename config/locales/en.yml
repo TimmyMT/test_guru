@@ -15,6 +15,8 @@ en:
         title: "Title"
         level: "Level"
         category_id: "Category"
+      answer:
+        body: "Answer"
     select:
       promt: "Please select"
 
@@ -59,6 +61,7 @@ en:
       button: "Begin test"
 
   test_passages:
+    gist_description: "Вопрос теста %{title} от TestGuru"
     result:
       header: "The %{title} Test was successfuly completed!"
       text: "You given right answers:"
@@ -66,6 +69,9 @@ en:
       header: "Passing the test %{title}"
       text: "Question %{number} of a %{count}"
       button: "Next question"
+    gist:
+      success: "Gist was successfully created!"
+      failure: "An error occured while saving gist"
 
   global_words:
     show_resource: "Show"
@@ -115,7 +121,7 @@ en:
         header: "New answer for question %{title}"
       edit:
         header: "Change answer: %{title}"
-      back_to_question: "Bakc to question"
+      back_to_question: "Back to question"
 
   tests_mailer:
     completed_test:

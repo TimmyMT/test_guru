@@ -8,21 +8,20 @@
   <nav class="my-2 my-md-0 mr-md-3">
     <% if user_signed_in? %>
       <!-- Управление тестами "Панель управления администратора" -->
-      <a class="p-2 text-dark"><%= link_to t('tests.admin_tests_link'), admin_tests_path if current_user.admin? %></a>
+      <a class="p-2 text-dark">
+        <% if current_user.admin? %>
+          <%= link_to t('tests.admin_tests_link'), admin_tests_path, class: 'btn btn-info' %>
+          <%= link_to 'Gists', admin_gists_path, class: 'btn btn-info' %>
+        <% end %>
+      </a>
       <a class="p-2 text-white">
         <%= current_user.first_name %>
         <%= current_user.last_name %>
       </a>
-      <div class="btn btn-outline-primary text-white">
-        <%= link_to t('devise.logout'), destroy_user_session_path, method: :delete %>
-      </div>
+      <%= link_to t('devise.logout'), destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
     <% else %>
-      <div class="btn btn-outline-primary text-white">
-        <%= link_to 'Sign in', new_session_path(resource_name) %>
-      </div>
-      <div class="btn btn-outline-primary text-white">
-        <%= link_to 'Sign up', new_registration_path(resource_name) %>
-      </div>
+      <%= link_to 'Sign in', new_session_path(resource_name), class: 'btn btn-warning' %>
+      <%= link_to 'Sign up', new_registration_path(resource_name), class: 'btn btn-warning' %>
     <% end %>
   </nav>
 </nav>

@@ -1,0 +1,3 @@
+class Gist < ApplicationRecord
+
+end

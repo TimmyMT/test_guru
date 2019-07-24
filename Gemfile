@@ -12,6 +12,12 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'rails-js'
 gem "autoprefixer-rails"
 require "autoprefixer-rails"
+# For API
+gem 'faraday'
+# Git Octokit
+gem 'octokit', '~> 4.0'
+# Paginate
+gem 'will_paginate', '~> 3.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
@@ -62,6 +68,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener'
+  # ENV
+  gem 'dotenv-rails', '~> 2.1'
 end
 
 group :test do

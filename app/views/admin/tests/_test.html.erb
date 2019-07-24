@@ -4,12 +4,12 @@
     <th><%= test.title %></th>
     <th><%= test.questions.count %></th>
     <th>
-      <%= link_to t('global_words.show_resource'), admin_test_path(test), class: 'btn btn-primary' %>
-      <%= link_to t('global_words.edit_resource'), edit_admin_test_path(test), class: 'btn btn-primary' %>
+      <%= link_to t('global_words.show_resource'), admin_test_path(test), class: 'btn btn-info' %>
+      <%= link_to t('global_words.edit_resource'), edit_admin_test_path(test), class: 'btn btn-warning' %>
       <%= link_to t('global_words.delete_resource'),
                 admin_test_path(test),
                 method: :delete,
-                data: {confirm: 'Are you sure?'}, class: 'btn btn-primary' %>
+                data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
     </th>
   </p>
 </tr>
