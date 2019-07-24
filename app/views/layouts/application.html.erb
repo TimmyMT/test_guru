@@ -15,10 +15,13 @@
   <body>
     <%= render 'shared/nav' %>
 
-    <div class="container">
-      <%= render 'shared/flash' %>
-      <%= yield %>
+    <div class="body-height">
+      <div class="container">
+        <%= render 'shared/flash' %>
+        <%= yield %>
+      </div>
     </div>
+
     <br>
     <%= render 'layouts/footer' %>
 
