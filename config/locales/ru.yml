@@ -63,7 +63,7 @@ ru:
 
   test_passages:
     gist_description: "Вопрос теста %{title} от TestGuru"
-    gist_fail: "Что то пошло не так"
+#    gist_fail: "Что то пошло не так"
     result:
       header: "Тест %{title} успешно завершён!"
       text: "Вы дали верных ответов:"

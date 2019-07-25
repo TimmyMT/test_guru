@@ -1,6 +1,6 @@
 <p>
   User: <%= gist.user.email %> <br>
-  <%= link_to "#{gist.url}", "https://gist.github.com/#{gist.url}", target: :_blank %> <br>
+  <%= link_to "#{gist.hash_id}", gist.url, target: :_blank %> <br>
   Question: <%= link_to truncate(Question.find(gist.question_id).body, length: 25), admin_question_path(gist.question_id) %> <br>
   Created: <%= gist.created_at %> <br>
   <br>

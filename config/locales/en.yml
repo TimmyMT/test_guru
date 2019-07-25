@@ -62,7 +62,7 @@ en:
 
   test_passages:
     gist_description: "Question %{title} of TestGuru"
-    gist_fail: "Something was wrong"
+#    gist_fail: "Something was wrong"
     result:
       header: "The %{title} Test was successfuly completed!"
       text: "You given right answers:"
