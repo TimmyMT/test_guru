@@ -1,5 +1,5 @@
 
 <% flash.each do |key, message| %>
-  <%= content_tag :div, message, class: "#{flash_convert(key)}" %>
+  <%= content_tag :div, sanitize(message), class: "#{flash_convert(key)}" %>
 <% end %>
 

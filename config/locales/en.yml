@@ -61,7 +61,8 @@ en:
       button: "Begin test"
 
   test_passages:
-    gist_description: "Вопрос теста %{title} от TestGuru"
+    gist_description: "Question %{title} of TestGuru"
+    gist_fail: "Something was wrong"
     result:
       header: "The %{title} Test was successfuly completed!"
       text: "You given right answers:"
