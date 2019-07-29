@@ -1,15 +1,15 @@
 <tr>
   <p>
-    <th><%= test.id %></th>
-    <th><%= test.title %></th>
-    <th><%= test.questions.count %></th>
-    <th>
+    <td><%= test.title %></td>
+    <td><%= test.id %></td>
+    <td><%= test.questions.count %></td>
+    <td>
       <%= link_to t('global_words.show_resource'), admin_test_path(test), class: 'btn btn-info' %>
       <%= link_to t('global_words.edit_resource'), edit_admin_test_path(test), class: 'btn btn-warning' %>
       <%= link_to t('global_words.delete_resource'),
                 admin_test_path(test),
                 method: :delete,
                 data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
-    </th>
+    </td>
   </p>
 </tr>

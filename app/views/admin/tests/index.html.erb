@@ -4,8 +4,14 @@
     <thead>
       <tr>
         <h4>
-          <th scope="col"><%= t('global_words.id_resource') %></th>
-          <th scope="col"><%= t('tests.index.title') %></th>
+          <th scope="col" class="sort-by-title pointer">
+            Title
+            <%= octicon 'arrow-up', class: 'text-success hide' %>
+            <%= octicon 'arrow-down', class: 'text-success hide' %>
+          </th>
+          <th scope="col" >
+            <%= t('global_words.id_resource') %>
+          </th>
           <th scope="col"><%= t('tests.index.questions') %></th>
           <th scope="col"><%= t('global_words.actions') %></th>
         </h4>
