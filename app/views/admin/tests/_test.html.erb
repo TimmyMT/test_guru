@@ -1,11 +1,17 @@
 <tr>
   <p>
-    <td><%= test.title %></td>
-    <td><%= test.id %></td>
-    <td><%= test.questions.count %></td>
-    <td>
+    <td class="align-middle">
+      <%= content_tag :span, test.title, class: 'test-title', data: {test_id: test.id} %>
+      <%= render 'form_inline', test: test == @test ? @test : test %>
+    </td>
+    <td class="align-middle"><%= test.id %></td>
+    <td class="align-middle"><%= test.questions.count %></td>
+    <td class="align-middle">
       <%= link_to t('global_words.show_resource'), admin_test_path(test), class: 'btn btn-info' %>
-      <%= link_to t('global_words.edit_resource'), edit_admin_test_path(test), class: 'btn btn-warning' %>
+      <%= link_to t('global_words.edit_resource'),
+                  edit_admin_test_path(test),
+                  data: {test_id: test.id},
+                  class: 'btn btn-warning form-inline-link' %>
       <%= link_to t('global_words.delete_resource'),
                 admin_test_path(test),
                 method: :delete,

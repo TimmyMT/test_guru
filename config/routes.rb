@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     root 'tests#index'
     resources :gists
     resources :tests do
+      patch :update_inline, on: :member
       resources :questions, except: :index, shallow: true do
         resources :answers, except: :index, shallow: true
       end

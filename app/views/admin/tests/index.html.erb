@@ -1,5 +1,6 @@
 <h1><%= t('tests.index.header') %></h1>
 <div>
+  <%= render 'shared/errors', resource: @test %>
   <table border="1" cellpadding="5" class="table">
     <thead>
       <tr>

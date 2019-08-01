@@ -83,6 +83,8 @@ en:
 
   admin:
     tests:
+      form_inline:
+        submit: "OK"
       create:
         success: "Test was succesfully created"
       index:
