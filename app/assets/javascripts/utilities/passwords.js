@@ -1,4 +1,4 @@
-// Change color fields
+// Change
 document.addEventListener('turbolinks:load', function() {
   var passwordConfirm = document.querySelector('#user_password_confirmation');
 
