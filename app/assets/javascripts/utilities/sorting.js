@@ -1,5 +1,5 @@
 document.addEventListener('turbolinks:load', function() {
-  var control = document.querySelector('.sort-by-title')
+  var control = document.querySelector('.sort-by-title');
 
   if (control) { control.addEventListener('click', sortRowsByTitle) }
 });
@@ -16,12 +16,12 @@ function sortRowsByTitle() {
 
 
   if (this.querySelector('.octicon-arrow-up').classList.contains('hide')) {
-    sortedRows.sort(compareRowsAsc)
-    this.querySelector('.octicon-arrow-up').classList.remove('hide')
+    sortedRows.sort(compareRowsAsc);
+    this.querySelector('.octicon-arrow-up').classList.remove('hide');
     this.querySelector('.octicon-arrow-down').classList.add('hide')
   } else {
-    sortedRows.sort(compareRowsDesc)
-    this.querySelector('.octicon-arrow-up').classList.add('hide')
+    sortedRows.sort(compareRowsDesc);
+    this.querySelector('.octicon-arrow-up').classList.add('hide');
     this.querySelector('.octicon-arrow-down').classList.remove('hide')
   }
 
