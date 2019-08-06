@@ -30,6 +30,7 @@ en:
     failure:
       user:
         invalid: "Something was wrong, please try again"
+        not_found_in_database: "User is not exist"
       unauthenticated: "Before continue, you need sign in"
     header:
       admin: "Admin"

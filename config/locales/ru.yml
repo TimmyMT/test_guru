@@ -31,6 +31,7 @@ ru:
     failure:
       user:
         invalid: "Что то пошло не так, попробуйте снова"
+        not_found_in_database: "Пользователь не существует"
       unauthenticated: "Чтобы продолжить выполните вход в аккаунт"
     header:
       admin: "Администратор"
