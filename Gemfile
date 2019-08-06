@@ -11,7 +11,7 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.3.1'
 gem 'rails-js'
 gem "autoprefixer-rails"
-require "autoprefixer-rails"
+# require "autoprefixer-rails"
 # For API
 gem 'faraday'
 # Git Octokit
