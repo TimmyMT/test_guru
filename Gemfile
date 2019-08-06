@@ -21,7 +21,7 @@ gem 'will_paginate', '~> 3.1.0'
 # Sort
 gem 'octicons_helper'
 
-gem 'bundler'
+gem 'bundler', '~>2.0.1'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
