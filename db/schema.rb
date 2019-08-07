@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_07_153549) do
+ActiveRecord::Schema.define(version: 2019_08_07_215149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_08_07_153549) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "question_id"
-    t.string "hash"
+    t.string "gist_hash"
     t.index ["question_id"], name: "index_gists_on_question_id"
     t.index ["user_id"], name: "index_gists_on_user_id"
   end

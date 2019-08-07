@@ -7,8 +7,9 @@ class TestPassagesController < ApplicationController
     if result.html_url.present?
       Gist.create!(user_id: current_user.id,
                    question_id: @test_passage.current_question.id,
-                   url: result.html_url, hash_id: result.id)
-      flash[:notice] = "#{t('test_passages.gist.success')} #{view_context.link_to "#{result.id}", result.html_url}"
+                   url: result.html_url, gist_hash: result.id)
+      flash[:notice] = "#{t('test_passages.gist.success')}
+        #{helpers.link_to result.id, result.html_url}"
     else
       flash[:alert] = t('test_passages.gist.failure')
     end

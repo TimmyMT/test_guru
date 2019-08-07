@@ -4,6 +4,6 @@ class Gist < ApplicationRecord
   belongs_to :user
 
   validates :url, presence: true
-  validates :hash_id, presence: true
+  validates :gist_hash, presence: true
 
 end
