@@ -3,7 +3,7 @@ class FeedbacksMailer < ApplicationMailer
 
   def send_mail(feedback)
     @feedback = feedback
-    mail(to: @admin.email, from: @feedback.user.email, subject: @feedback.title).deliver_now
+    mail(to: @admin.email, from: @feedback.user.email, subject: @feedback.title)
   end
 
   private
