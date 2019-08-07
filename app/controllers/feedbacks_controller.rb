@@ -1,4 +1,5 @@
 class FeedbacksController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @feedback = current_user.feedbacks.new
@@ -7,7 +8,7 @@ class FeedbacksController < ApplicationController
   def create
     @feedback = current_user.feedbacks.new(feedback_params)
     if @feedback.valid?
-      flash[:success] = "Your feedback was submitted"
+      flash[:success] = t('feedbacks.created')
       FeedbacksMailer.send_mail(@feedback).deliver_now
       redirect_to root_path
     else

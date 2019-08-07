@@ -27,14 +27,21 @@ en:
         other: "%{count} errors detected"
 
   devise:
+    confirmations:
+      user:
+        confirmed: "Account was successfully confirmed. Now you can sign in!"
+        send_instructions: "Instructions was submitted again, check your mail please"
     failure:
       user:
         invalid: "Something was wrong, please try again"
         not_found_in_database: "User is not exist"
+        unconfirmed: "Account was not confirmed"
       unauthenticated: "Before continue, you need sign in"
     header:
       admin: "Admin"
     welcome_user: "Good day to you %{user}!"
+    login: "Sign in"
+    sign_up: "Sign up"
     logout: "Sign out"
     sessions:
       user:
@@ -50,6 +57,9 @@ en:
         sign_up: "Create account"
         forgot_password: "Forgot password?"
         not_receive_confirmation: "Didn't receive confirmation instructions?"
+
+  feedbacks:
+    created: "Your feedback was submitted"
 
   tests:
     tests_link: "Tests"

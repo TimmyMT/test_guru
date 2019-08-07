@@ -28,14 +28,21 @@ ru:
         other: "Обнаружено ошибок %{count}"
 
   devise:
+    confirmations:
+      user:
+        confirmed: "Аккаунт успешно подтверждён. Теперь вы можете войти!"
+        send_instructions: "Сообщение с подтверждением было отправлено на вашу почту!"
     failure:
       user:
         invalid: "Что то пошло не так, попробуйте снова"
         not_found_in_database: "Пользователь не существует"
+        unconfirmed: "Аккаунт не подтверждён"
       unauthenticated: "Чтобы продолжить выполните вход в аккаунт"
     header:
       admin: "Администратор"
     welcome_user: "Здравствуйте %{user}!"
+    login: "Войти"
+    sign_up: "Создать аккаунт"
     logout: "Выйти"
     sessions:
       user:
@@ -50,7 +57,10 @@ ru:
       _links:
         sign_up: "Новый аккаунт"
         forgot_password: "Забыли пароль?"
-        not_receive_confirmation: "Не получили инструкции с подтверждением?"
+        not_receive_confirmation: "Не получили сообщение с подтверждением?"
+
+  feedbacks:
+    created: "Ваше сообщение отправлено"
 
   tests:
     tests_link: "Тесты"
