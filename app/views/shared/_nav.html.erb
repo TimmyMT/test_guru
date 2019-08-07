@@ -4,6 +4,7 @@
     <a class="text-white">
       <%= t('devise.header.admin') if user_signed_in? && current_user.admin? %>
     </a>
+    <%= link_to 'Обратная связь', new_feedback_path, class: 'navbar-brand' %>
   </div>
   <nav class="my-2 my-md-0 mr-md-3">
     <% if user_signed_in? %>
