@@ -83,7 +83,9 @@ en:
     gist_description: "Question %{title} of TestGuru"
 #    gist_fail: "Something was wrong"
     result:
-      header: "The %{title} Test was successfuly completed!"
+      header:
+        success: "The %{title} Test was successfuly completed!"
+        fail: "The %{title} Test was failed completed..."
       text: "You given right answers:"
     show:
       header: "Passing the test %{title}"

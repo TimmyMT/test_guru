@@ -83,7 +83,9 @@ ru:
     gist_description: "Вопрос теста %{title} от TestGuru"
 #    gist_fail: "Что то пошло не так"
     result:
-      header: "Тест %{title} успешно завершён!"
+      header:
+        success: "Тест %{title} успешно завершён!"
+        fail: "Тест %{title} завершён с провалом...(грустный тромбон)"
       text: "Вы дали верных ответов:"
     show:
       header: "Прохождение теста %{title}"
