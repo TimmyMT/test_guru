@@ -1,7 +1,17 @@
-<%= form_with model: @feedback, local: true do |f| %>
-  <%= f.label :title %> <br>
-  <%= f.text_field :title %> <br>
-  <%= f.label :body %> <br>
-  <%= f.text_area :body %> <br>
-  <%= f.submit %>
+<%= form_with model: @feedback, local: true, class: 'w-25' do |f| %>
+  <%= render 'shared/errors', resource: @feedback %>
+  <br>
+  <div class="form-group">
+    <%= f.label :title %> <br>
+    <%= f.text_field :title, :required => true, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body, :required => true, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, :required => true, class: 'form-control' %>
+  </div>
+  <%= f.submit class: 'btn btn-primary' %>
 <% end %>

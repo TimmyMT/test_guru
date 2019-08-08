@@ -1,15 +1,14 @@
+# require_relative '../../app/models/feedback'
 class FeedbacksController < ApplicationController
-  before_action :authenticate_user!
-
   def new
-    @feedback = current_user.feedbacks.new
+    @feedback = Feedback.new
   end
 
   def create
-    @feedback = current_user.feedbacks.new(feedback_params)
+    @feedback = Feedback.new(feedback_params)
     if @feedback.valid?
-      flash[:success] = t('feedbacks.created')
       FeedbacksMailer.send_mail(@feedback).deliver_now
+      flash[:success] = t('feedbacks.created')
       redirect_to root_path
     else
       flash[:alert] = 'Aborted'
@@ -20,7 +19,7 @@ class FeedbacksController < ApplicationController
   private
 
   def feedback_params
-    params.require(:feedback).permit(:title, :body)
+    params.require(:feedback).permit(:title, :body, :email)
   end
 
 end

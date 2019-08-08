@@ -1,4 +1,11 @@
 ru:
+  activemodel:
+    errors:
+      models:
+        feedback:
+          attributes:
+            body:
+              blank: "Не может быть пустым"
   helpers:
     submit:
       test:

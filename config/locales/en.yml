@@ -1,4 +1,12 @@
 en:
+  activemodel:
+    errors:
+      models:
+        feedback:
+          attributes:
+            body:
+              blank: "Can't be blank"
+
   helpers:
     submit:
       test:
