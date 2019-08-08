@@ -10,11 +10,10 @@ class FeedbacksController < ApplicationController
     if @feedback.valid?
       FeedbacksMailer.send_mail(@feedback).deliver_now
       flash[:success] = t('feedbacks.created')
-      redirect_to new_feedback_path
     else
       flash[:alert] = 'Aborted'
-      redirect_to new_feedback_path
     end
+    redirect_to new_feedback_path
   end
 
   private
