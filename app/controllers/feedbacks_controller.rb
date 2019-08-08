@@ -1,5 +1,6 @@
 # require_relative '../../app/models/feedback'
 class FeedbacksController < ApplicationController
+
   def new
     @feedback = Feedback.new
   end
@@ -9,10 +10,10 @@ class FeedbacksController < ApplicationController
     if @feedback.valid?
       FeedbacksMailer.send_mail(@feedback).deliver_now
       flash[:success] = t('feedbacks.created')
-      redirect_to root_path
+      redirect_to new_feedback_path
     else
       flash[:alert] = 'Aborted'
-      render :new
+      redirect_to new_feedback_path
     end
   end
 
