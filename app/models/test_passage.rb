@@ -4,6 +4,11 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: :Question, optional: true
 
   before_validation :sef_current_question
+  before_update :before_update_test_passed
+
+  def before_update_test_passed
+    self.passed = succesful? if completed?
+  end
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
