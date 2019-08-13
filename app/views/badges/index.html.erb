@@ -2,7 +2,10 @@
 <br>
 <% @badges.each do |b| %>
   <%= b.name %><%= image_tag(b.picture, size: '15x15') %>
-  <%= link_to 'edit', edit_admin_badge_path(b) %>
+  <% if current_user.admin? %>
+    <%= link_to 'edit', edit_admin_badge_path(b) %> |
+    <%= link_to 'delete', admin_badge_path(b), method: :delete, data: {confirm: 'Are you sure?'} %>
+  <% end %>
   <br>
 <% end %>
 <br>

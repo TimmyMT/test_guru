@@ -26,7 +26,7 @@ class BadgeControlService
     end
   end
 
-  # private
+  private
 
   def add_badge(badge)
     @user.badges.push(badge) #unless @user.badges.include?(badge)
@@ -35,14 +35,9 @@ class BadgeControlService
   def all_tests_category(category)
     tests_category_count = Test.where(category_id: Category.find_by(title: category.to_s).id).count
 
-    user_tests_array = []
-    @user.test_passages.where(passed: true).pluck('DISTINCT test_id').each do |id|
-      user_tests_array << Test.find(id)
-    end
-
     user_completed_tests_category = 0
-    user_tests_array.each do |test|
-      user_completed_tests_category += 1 if test.category_id == Category.find_by(title: category.to_s).id
+    @user.test_passages.where(passed: true).pluck('DISTINCT test_id').each do |id|
+      user_completed_tests_category += 1 if Test.find(id).category_id == Category.find_by(title: category.to_s).id
     end
 
     return tests_category_count == user_completed_tests_category

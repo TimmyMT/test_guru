@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :feedbacks
+  resources :badges, only: :index
 
   root 'tests#index'
 

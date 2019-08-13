@@ -1,19 +1,16 @@
 class Admin::BadgesController < Admin::BaseController
-
-  def index
-    @badges = Badge.all
-  end
+  before_action :set_badge, only: [:edit, :update, :destroy]
+  before_action :admin_permissions
 
   def new
     @badge = Badge.new
   end
 
   def edit
-    @badge = Badge.find(params[:id])
+
   end
 
   def update
-    @badge = Badge.find(params[:id])
     if @badge.update(badge_params)
       flash[:success] = 'Badge updated!'
       redirect_to admin_badges_path
@@ -33,7 +30,22 @@ class Admin::BadgesController < Admin::BaseController
     end
   end
 
+  def destroy
+    @badge.destroy
+    redirect_to admin_badges_path
+  end
+
   private
+
+  def admin_permissions
+    unless current_user.admin?
+      redirect_to
+    end
+  end
+
+  def set_badge
+    @badge = Badge.find(params[:id])
+  end
 
   def badge_params
     params.require(:badge).permit(:name, :picture, :control, :control_param)
