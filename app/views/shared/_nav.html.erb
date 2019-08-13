@@ -7,6 +7,14 @@
   </div>
   <nav class="my-2 my-md-0 mr-md-3">
     <% if user_signed_in? %>
+      <a class="p-2 text-white">
+        <%= current_user.badges.where(control: 2).count %>
+        <%= image_tag(Badge.find_by(control: 2).picture, size: '20x20') %>
+        <%= current_user.badges.where(control: 1).count %>
+        <%= image_tag(Badge.find_by(control: 1).picture, size: '20x20') %>
+        <%= current_user.badges.where(control: 3).count %>
+        <%= image_tag(Badge.find_by(control: 3).picture, size: '20x20') %>
+      </a>
       <!-- Управление тестами "Панель управления администратора" -->
       <a class="p-2 text-dark">
         <% if current_user.admin? %>

@@ -2,6 +2,7 @@
 <br>
 <% @badges.each do |b| %>
   <%= b.name %><%= image_tag(b.picture, size: '15x15') %>
+  <%= link_to 'edit', edit_admin_badge_path(b) %>
   <br>
 <% end %>
 <br>

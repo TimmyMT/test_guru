@@ -18,6 +18,7 @@
 
 <div class="card border-primary">
   <div class="card-body">
+    <p><%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post %></p>
     <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
       <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body,
                                       include_hidden: false do |b| %>
@@ -27,7 +28,6 @@
         </p>
       <% end %>
 
-      <p><%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post %></p>
       <p><%= form.submit t('.button') %></p>
     <% end %>
   </div>
