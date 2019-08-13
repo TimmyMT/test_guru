@@ -13,7 +13,7 @@ class Admin::BadgesController < Admin::BaseController
   def update
     if @badge.update(badge_params)
       flash[:success] = 'Badge updated!'
-      redirect_to admin_badges_path
+      redirect_to badges_path
     else
       render :edit
     end
@@ -23,7 +23,7 @@ class Admin::BadgesController < Admin::BaseController
     @badge = Badge.new(badge_params)
     if @badge.save
       flash[:success] = 'Badge created!'
-      redirect_to admin_badges_path
+      redirect_to badges_path
     else
       flash[:error] = 'Not created!'
       render :new
@@ -32,7 +32,7 @@ class Admin::BadgesController < Admin::BaseController
 
   def destroy
     @badge.destroy
-    redirect_to admin_badges_path
+    redirect_to badges_path
   end
 
   private
