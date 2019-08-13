@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_many :test_passages
   has_many :tests, through: :test_passages
   has_many :gists
+  has_many :badge_users
+  has_many :badges, through: :badge_users
 
   devise :database_authenticatable,
          :registerable,

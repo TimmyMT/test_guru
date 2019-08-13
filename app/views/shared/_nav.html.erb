@@ -10,6 +10,8 @@
       <!-- Управление тестами "Панель управления администратора" -->
       <a class="p-2 text-dark">
         <% if current_user.admin? %>
+          <%= link_to 'All Badges', admin_badges_path, class: 'btn btn-warning' %>
+          <%= link_to 'Create Badge', new_admin_badge_path, class: 'btn btn-success' %>
           <%= link_to t('tests.admin_tests_link'), admin_tests_path, class: 'btn btn-info' %>
           <%= link_to 'Gists', admin_gists_path, class: 'btn btn-info' %>
         <% end %>

@@ -1,0 +1,18 @@
+<%= form_with model: [:admin, @badge], local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :picture %>
+  <%= f.text_field :picture %>
+  <br>
+  <%= f.label :control %>
+  <%= f.select :control, options_for_select([['После прохождения всех тестов категории', 1],
+                                            ['После прохождения теста с первой попытки', 2],
+                                            ['После прохождения теста определённого уровня', 3]
+                                            ]) %>
+  <br>
+  <%= f.label :control_param %>
+  <%= f.text_field :control_param %>
+  <br>
+  <%= f.submit %>
+<% end %>

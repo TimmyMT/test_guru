@@ -1,0 +1,12 @@
+<h1>All badges</h1>
+<br>
+<% @badges.each do |b| %>
+  <%= b.name %><%= image_tag(b.picture, size: '15x15') %>
+  <br>
+<% end %>
+<br>
+<h3>Your badges</h3>
+<% current_user.badges.each do |b| %>
+  <%= b.name %><%= image_tag(b.picture, size: '15x15') %>
+  <br>
+<% end %>
