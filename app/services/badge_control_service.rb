@@ -16,30 +16,23 @@ class BadgeControlService
   private
 
   def control_1(category)
-    tests_category_count = Test.where(category_id: Category.find_by(title: category.to_s).id).count
-
-    user_completed_tests_category = 0
-    @user.test_passages.where(passed: true).pluck('DISTINCT test_id').each do |id|
-      user_completed_tests_category += 1 if Test.find(id).category_id == Category.find_by(title: category.to_s).id
-    end
-
-    tests_category_count == user_completed_tests_category
+    category_tests = Category.find_by(title: category).tests.pluck('DISTINCT id')
+    user_completed_tests = @user.test_passages.where(passed: true).pluck('DISTINCT test_id')
+    category_tests == user_completed_tests
   end
 
   def control_2(nothing)
-    count_tests = @user.test_passages.where(test_id: @test_passage.test.id).count
-    count_tests == 1 && @test_passage.passed == true && nothing == ''
+    count_tests = @user.test_passages.where(test_id: @test_passage.test.id).where(passed: true).count
+    count_tests == 1 && nothing == ''
   end
 
   def control_3(level)
-    count_tests = Test.where(level: level.to_i).count
-
-    user_count_tests = 0
-    @user.test_passages.where(passed: true).pluck('DISTINCT test_id').each do |id|
-      user_count_tests += 1 if Test.find(id).level == level.to_i
-    end
-
-    count_tests == user_count_tests && count_tests != 0
+    level_tests = Test.where(level: level.to_i).pluck('DISTINCT id').count
+    user_tests = @user.test_passages
+                     .where(passed: true)
+                     .where(test_id: Test.where(level: level.to_i))
+                     .pluck('DISTINCT test_id').count
+    level_tests == user_tests && level_tests != 0
   end
 
 end
