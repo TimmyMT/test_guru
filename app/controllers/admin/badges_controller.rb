@@ -39,7 +39,7 @@ class Admin::BadgesController < Admin::BaseController
 
   def admin_permissions
     unless current_user.admin?
-      redirect_to
+      redirect_to root_path
     end
   end
 
