@@ -10,7 +10,7 @@ class BadgeControlService
     Badge.all.each do |badge|
       badges << badge if send("control_#{badge.control}", badge.control_param)
     end
-    return badges
+    badges
   end
 
   private
@@ -23,12 +23,12 @@ class BadgeControlService
       user_completed_tests_category += 1 if Test.find(id).category_id == Category.find_by(title: category.to_s).id
     end
 
-    return tests_category_count == user_completed_tests_category
+    tests_category_count == user_completed_tests_category
   end
 
   def control_2(nothing)
     count_tests = @user.test_passages.where(test_id: @test_passage.test.id).count
-    return count_tests == 1 && @test_passage.passed == true && nothing == ''
+    count_tests == 1 && @test_passage.passed == true && nothing == ''
   end
 
   def control_3(level)
@@ -39,7 +39,7 @@ class BadgeControlService
       user_count_tests += 1 if Test.find(id).level == level.to_i
     end
 
-    return count_tests == user_count_tests && count_tests != 0
+    count_tests == user_count_tests && count_tests != 0
   end
 
 end
