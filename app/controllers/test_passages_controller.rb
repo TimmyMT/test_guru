@@ -29,10 +29,7 @@ class TestPassagesController < ApplicationController
 
     if @test_passage.completed?
       badges = BadgeControlService.new(@test_passage).call
-
-      badges.each do |badge|
-        current_user.badges << badge unless current_user.badges.include?(badge) && badge.control_param != ''
-      end
+      current_user.badges << badges
 
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)

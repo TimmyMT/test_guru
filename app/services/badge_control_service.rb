@@ -8,7 +8,9 @@ class BadgeControlService
   def call
     badges = []
     Badge.all.each do |badge|
-      badges << badge if send("control_#{badge.control}", badge.control_param)
+      unless @user.badges.include?(badge) && badge.control_param != ''
+        badges << badge if send("control_#{badge.control}", badge.control_param)
+      end
     end
     badges
   end
