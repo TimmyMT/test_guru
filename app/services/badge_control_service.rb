@@ -13,8 +13,17 @@ class BadgeControlService
   private
 
   def control_1(category)
-    category_tests = Category.find_by(title: category).tests.pluck('DISTINCT id')
-    user_completed_tests = @user.test_passages.where(passed: true).pluck('DISTINCT test_id')
+    # category_tests = Category.find_by(title: category).tests.pluck('DISTINCT id')
+    category_tests = Test.joins('INNER JOIN categories ON categories.id = tests.category_id')
+                                .where(categories: {title: category})
+                                .order(id: :desc).pluck(:id)
+
+    # user_completed_tests = @user.test_passages.where(passed: true).pluck('DISTINCT test_id')
+    user_completed_tests = @user.test_passages.joins('INNER JOIN tests ON tests.id = test_passages.test_id
+                                                      INNER JOIN categories ON categories.id = tests.category_id')
+                                                    .where(test_passages: {passed: true}, categories: {title: category})
+                                                    .order(id: :desc).pluck(:test_id)
+
     category_tests == user_completed_tests
   end
 
@@ -24,12 +33,20 @@ class BadgeControlService
   end
 
   def control_3(level)
-    level_tests = Test.where(level: level.to_i).pluck('DISTINCT id').count
-    user_tests = @user.test_passages
-                     .where(passed: true)
-                     .where(test_id: Test.where(level: level.to_i))
-                     .pluck('DISTINCT test_id').count
-    level_tests == user_tests && level_tests != 0
+    # level_tests = Test.where(level: level.to_i).pluck('DISTINCT id').count
+    level_tests = Test.where(level: level.to_i).order(id: :desc).pluck(:id)
+
+    user_tests = @user.test_passages.joins('join tests on tests.id = test_passages.test_id')
+      .where(tests: {level: level.to_i}, test_passages: {passed: true})
+      .order(test_id: :desc).pluck(:test_id)
+      # .pluck('DISTINCT test_id').count
+
+    # user_tests = @user.test_passages
+    #                  .where(passed: true)
+    #                  .where(test_id: Test.where(level: level.to_i))
+    #                  .pluck('DISTINCT test_id').count
+
+    level_tests == user_tests #&& level_tests != 0
   end
 
 end
