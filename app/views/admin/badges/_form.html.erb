@@ -6,10 +6,7 @@
   <%= f.text_field :picture %>
   <br>
   <%= f.label :control %>
-  <%= f.select :control, options_for_select([['После прохождения всех тестов категории', 1],
-                                            ['После прохождения теста с первой попытки', 2],
-                                            ['После прохождения теста определённого уровня', 3]
-                                            ]) %>
+  <%= f.select :control, control_collection, include_blank: 'Выберите' %>
   <br>
   <%= f.label :control_param %>
   <%= f.text_field :control_param %>
