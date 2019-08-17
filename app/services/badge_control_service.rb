@@ -20,14 +20,13 @@ class BadgeControlService
   private
 
   def control_1(badge)
-    all_tests_for_category = Test.joins('INNER JOIN categories ON categories.id = tests.category_id')
-                                .where(categories: {title: badge.control_param.to_s})
-                                .order(id: :desc).pluck(:id)
+    all_tests_for_category = Test.joins(:category)
+                                 .where(categories: {title: badge.control_param.to_s})
+                                 .pluck(:id)
 
-    user_tests_for_category = user_tests.joins('INNER JOIN tests ON tests.id = test_passages.test_id
-                                INNER JOIN categories ON categories.id = tests.category_id')
-                                .where(categories: {title: badge.control_param.to_s})
-                                .order(id: :desc).pluck(:test_id)
+    user_tests_for_category = user_tests.joins(:test => :category)
+                                  .where(categories: {title: badge.control_param.to_s})
+                                  .pluck(:test_id)
 
     all_tests_for_category == user_tests_for_category && badge_present?(badge) == false
   end
@@ -38,11 +37,14 @@ class BadgeControlService
   end
 
   def control_3(badge)
-    all_tests_for_level = Test.where(level: badge.control_param.to_i).order(id: :desc).pluck(:id)
+    all_tests_for_level = Test.where(level: badge.control_param.to_i)
+                              .order(id: :desc)
+                              .pluck(:id)
 
-    user_tests_for_level = user_tests.joins('join tests on tests.id = test_passages.test_id')
-                             .where(tests: {level: badge.control_param.to_i})
-                             .order(test_id: :desc).pluck(:test_id)
+    user_tests_for_level = user_tests.joins(:test)
+                               .where(tests: {level: badge.control_param.to_i})
+                               .order(test_id: :desc)
+                               .pluck(:test_id)
 
     all_tests_for_level == user_tests_for_level && badge_present?(badge) == false
   end
