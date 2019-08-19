@@ -42,10 +42,7 @@ class BadgeControlService
 
   def control_2(badge)
     return if badge.control_param.to_s != ''
-
-    # tests_passed_count = user_tests.where(test_id: @test_passage.test.id).count
-    # tests_passed_count == 1 && badge.control_param == ''
-    @test_passage.succesful? && badge.control_param == ''
+    badge.control_param == '' && @test_passage.passed == true
   end
 
   def control_3(badge)

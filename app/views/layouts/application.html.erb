@@ -16,6 +16,11 @@
     <%= render 'shared/nav' %>
 
     <div class="container">
+
+      <div id="clock_display">
+
+      </div>
+
       <% if user_signed_in? %>
         <a class="p-2 text-dark">
           <%= current_user.badges.where(control: 2).count %>
@@ -27,6 +32,8 @@
         </a>
       <% end %>
     </div>
+
+
 
     <div class="body-height">
       <div class="container">

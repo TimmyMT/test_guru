@@ -7,7 +7,7 @@ class TestPassage < ApplicationRecord
   before_update :before_update_test_passed
 
   def before_update_test_passed
-    self.passed = succesful? if completed?
+    self.passed = succesful? && time_out? if completed?
   end
 
   def accept!(answer_ids)
@@ -27,6 +27,12 @@ class TestPassage < ApplicationRecord
 
   def succesful?
     true if result_percent >= 85
+  end
+
+  def time_out?
+    if test.received_time.present? && completed?
+      return true if updated_at.strftime("%M").to_i - created_at.strftime("%M").to_i <= test.received_time
+    end
   end
 
   def completed?

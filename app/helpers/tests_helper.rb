@@ -6,4 +6,8 @@ module TestsHelper
       "Edit #{test.title} test"
     end
   end
+
+  def time_left_collection
+    [3, 5, 7, 10]
+  end
 end

@@ -18,6 +18,11 @@
         <%= form.collection_select :category_id, Category.all, :id, :title, { promt: true } %>
       </h5>
 
+      <h5>
+        <%= form.label 'Time left minnutes' %>
+        <%= form.select :received_time, time_left_collection, include_blank: 'Shoose' %>
+      </h5>
+
       <%= form.submit class: 'btn btn-primary' %>
     <% end %>
   </div>

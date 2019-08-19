@@ -9,7 +9,7 @@ class TestsController < ApplicationController
   end
 
   def index
-    @tests = Test.all
+    @tests = Test.all.order(id: :desc)
   end
 
   private
