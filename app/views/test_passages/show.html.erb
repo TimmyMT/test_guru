@@ -1,21 +1,23 @@
 <h1><%= t('.header', title: @test_passage.test.title) %></h1>
 
-<p>
-  <div class="progress">
-    <%= content_tag :div,
-                    class: 'progress-bar',
-                    data: {
-                      question_number: @test_passage.current_number,
-                      questions_count: @test_passage.test.questions.count
-                    } do %>
-      <%= t('.text', number: @test_passage.current_number, count: @test_passage.test.questions.count) %>
-    <% end %>
-  </div>
-  <br>
-  <b><%= @test_passage.current_question.body %></b>
-  <br><br>
-</p>
 
+<div class="progress">
+  <%= content_tag :div,
+                  class: 'progress-bar',
+                  data: {
+                    question_number: @test_passage.current_number,
+                    questions_count: @test_passage.test.questions.count
+                  } do %>
+    <%= t('.text', number: @test_passage.current_number, count: @test_passage.test.questions.count) %>
+  <% end %>
+</div>
+<br>
+<b><%= @test_passage.current_question.body %></b>
+<br><br>
+
+<div>
+  <%= t('test_passages.show.display_time') %>: <%= content_tag :span, '', class: 'timer_clock', data: {timeleft: @test_passage.timer_ticks} %>
+</div>
 
 
 <div class="card border-primary">

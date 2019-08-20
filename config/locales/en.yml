@@ -86,11 +86,13 @@ en:
       header:
         success: "The %{title} Test was successfuly completed!"
         fail: "The %{title} Test was failed completed..."
+        time_over: "Time is over!"
       text: "You given right answers:"
     show:
       header: "Passing the test %{title}"
       text: "Question %{number} of a %{count}"
       button: "Next question"
+      display_time: "Time left"
     gist:
       success: "Gist was successfully created!"
       failure: "An error occured while saving gist"

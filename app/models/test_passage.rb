@@ -5,19 +5,37 @@ class TestPassage < ApplicationRecord
 
   before_validation :sef_current_question
   before_update :before_update_test_passed
+  before_update :before_update_check_time_over
+
+  def expected_time
+    created_at + test.timeleft.minutes
+  end
+
+  def timer_ticks
+    ((expected_time) - Time.current).to_i
+  end
+
+  def time_over?
+    (expected_time) < Time.current
+  end
 
   def before_update_test_passed
-    self.passed = succesful? && time_out? if completed?
+    self.passed = succesful? if completed?
+  end
+
+  def before_update_check_time_over
+    if time_over?
+      self.current_question = nil
+      self.time_over = true
+    end
   end
 
   def accept!(answer_ids)
-    self.correct_questions += 1 if correct_answer?(answer_ids)
+    self.correct_questions += 1 if correct_answer?(answer_ids) unless time_over?
     save!
   end
 
   def current_number
-    # test.questions.pluck(:id).find_index(current_question.id) + 1
-    # test.questions.count - questions_collection.count
     test.questions.order(:id).where('id <= ?', current_question.id).count
   end
 
@@ -29,12 +47,6 @@ class TestPassage < ApplicationRecord
     true if result_percent >= 85
   end
 
-  def time_out?
-    if test.received_time.present? && completed?
-      return true if updated_at.strftime("%M").to_i - created_at.strftime("%M").to_i <= test.received_time
-    end
-  end
-
   def completed?
     current_question.nil?
   end
@@ -42,7 +54,6 @@ class TestPassage < ApplicationRecord
   private
 
   def correct_answer?(answer_ids)
-    # correct_answers.ids.sort == answer_ids.map(&:to_i).sort if answer_ids.present?
     correct_answers.ids.sort == Array(answer_ids).map(&:to_i).sort
   end
 

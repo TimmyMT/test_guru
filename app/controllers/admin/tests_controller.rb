@@ -50,7 +50,7 @@ class Admin::TestsController < Admin::BaseController
   private
 
   def set_tests
-    @tests = Test.all
+    @tests = Test.all.order(id: :desc)
   end
 
   def find_test
@@ -58,7 +58,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :received_time)
+    params.require(:test).permit(:title, :level, :category_id, :timeleft)
   end
 
 end

@@ -8,6 +8,6 @@ module TestsHelper
   end
 
   def time_left_collection
-    [3, 5, 7, 10]
+    [3, 5, 7, 10, 15]
   end
 end

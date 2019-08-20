@@ -20,7 +20,7 @@
 
       <h5>
         <%= form.label 'Time left minnutes' %>
-        <%= form.select :received_time, time_left_collection, include_blank: 'Shoose' %>
+        <%= form.number_field :timeleft%>
       </h5>
 
       <%= form.submit class: 'btn btn-primary' %>
