@@ -5,7 +5,7 @@ class TestPassage < ApplicationRecord
 
   before_validation :sef_current_question
   before_update :before_update_test_passed
-  before_update :before_update_check_time_over
+  before_commit :before_commit_check_time_over
 
   def expected_time
     created_at + test.timeleft.minutes
@@ -23,7 +23,7 @@ class TestPassage < ApplicationRecord
     self.passed = succesful? if completed?
   end
 
-  def before_update_check_time_over
+  def before_commit_check_time_over
     if time_over?
       self.current_question = nil
       self.time_over = true
@@ -31,7 +31,7 @@ class TestPassage < ApplicationRecord
   end
 
   def accept!(answer_ids)
-    self.correct_questions += 1 if correct_answer?(answer_ids) unless time_over?
+    self.correct_questions += 1 if correct_answer?(answer_ids) && !time_over?
     save!
   end
 
