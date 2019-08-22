@@ -24,7 +24,7 @@ class TestPassage < ApplicationRecord
   end
 
   def before_commit_check_time_over
-    if time_over?
+    if time_over? && !destroyed?
       self.current_question = nil
       self.time_over = true
     end
